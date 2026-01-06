@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Calculator - From Blueprint to Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; } .font-mono { font-family: 'JetBrains Mono', monospace; }</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <nav class="text-sm text-gray-500">
+                <a href="../../" class="hover:text-green-600">From Blueprint to Application</a>
+                <span class="mx-2">/</span>
+                <a href="../" class="hover:text-green-600">Demos</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-900">Token Calculator</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Token Calculator</h1>
+            <p class="text-gray-600">Estimate tokens and API costs for your prompts</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+            <!-- Input -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Enter Your Text</h2>
+                <textarea id="inputText" rows="10" placeholder="Paste your prompt or text here..." class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 font-mono text-sm" oninput="calculate()"></textarea>
+
+                <div class="mt-4 grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Expected Output Tokens</label>
+                        <input type="number" id="outputTokens" value="500" min="0" max="100000" class="w-full border border-gray-300 rounded-lg px-3 py-2" oninput="calculate()">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Requests per Day</label>
+                        <input type="number" id="requestsPerDay" value="100" min="1" max="100000" class="w-full border border-gray-300 rounded-lg px-3 py-2" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Token Analysis</h2>
+
+                <!-- Token Count -->
+                <div class="bg-green-50 rounded-lg p-4 mb-4">
+                    <div class="text-sm text-green-600 mb-1">Estimated Input Tokens</div>
+                    <div class="text-3xl font-bold text-green-700" id="tokenCount">0</div>
+                    <div class="text-xs text-green-600 mt-1">~4 characters per token</div>
+                </div>
+
+                <!-- Context Window -->
+                <div class="mb-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="text-gray-600">Context Window Usage</span>
+                        <span id="contextPercent" class="font-medium">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div id="contextBar" class="bg-green-500 h-3 rounded-full transition-all" style="width: 0%"></div>
+                    </div>
+                    <div class="text-xs text-gray-500 mt-1">Based on 128K context window</div>
+                </div>
+
+                <!-- Cost Estimates -->
+                <h3 class="font-medium text-gray-900 mt-6 mb-3">Cost Estimates (per 1M tokens)</h3>
+                <div class="space-y-2 text-sm" id="costTable">
+                    <!-- Filled by JS -->
+                </div>
+
+                <!-- Monthly Projection -->
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                    <div class="text-sm text-gray-600 mb-1">Projected Monthly Cost</div>
+                    <div class="text-2xl font-bold text-gray-900" id="monthlyCost">$0.00</div>
+                    <div class="text-xs text-gray-500">Based on <span id="monthlyRequests">0</span> requests/month</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing Reference -->
+        <div class="mt-8 bg-white rounded-xl shadow-md p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Pricing Reference (January 2026)</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-left">Model</th>
+                            <th class="px-4 py-2 text-right">Input $/1M</th>
+                            <th class="px-4 py-2 text-right">Output $/1M</th>
+                            <th class="px-4 py-2 text-right">Context</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y" id="pricingTable"></tbody>
+                </table>
+            </div>
+            <p class="text-xs text-gray-500 mt-4">* Prices are approximate and may vary. Check provider websites for current pricing.</p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2026 Fredrik Brattén. All Rights Reserved.</p>
+            <p class="mt-2 text-sm"><a href="../" class="hover:text-white">Back to Demos</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const models = [
+            { name: "GPT-5.2", input: 5.00, output: 15.00, context: 128000 },
+            { name: "Claude 4.5 Opus", input: 15.00, output: 75.00, context: 200000 },
+            { name: "Claude 4.5 Sonnet", input: 3.00, output: 15.00, context: 200000 },
+            { name: "Claude 4.5 Haiku", input: 0.25, output: 1.25, context: 200000 },
+            { name: "o3", input: 10.00, output: 40.00, context: 128000 },
+            { name: "o3-mini", input: 1.10, output: 4.40, context: 128000 }
+        ];
+
+        // Render pricing table
+        document.getElementById('pricingTable').innerHTML = models.map(m => `
+            <tr>
+                <td class="px-4 py-2 font-medium">${m.name}</td>
+                <td class="px-4 py-2 text-right">$${m.input.toFixed(2)}</td>
+                <td class="px-4 py-2 text-right">$${m.output.toFixed(2)}</td>
+                <td class="px-4 py-2 text-right">${(m.context/1000)}K</td>
+            </tr>
+        `).join('');
+
+        function estimateTokens(text) {
+            // Rough estimate: ~4 chars per token for English
+            return Math.ceil(text.length / 4);
+        }
+
+        function calculate() {
+            const text = document.getElementById('inputText').value;
+            const outputTokens = parseInt(document.getElementById('outputTokens').value) || 0;
+            const requestsPerDay = parseInt(document.getElementById('requestsPerDay').value) || 0;
+
+            const inputTokens = estimateTokens(text);
+            const totalTokens = inputTokens + outputTokens;
+            const contextPercent = Math.min((totalTokens / 128000) * 100, 100);
+            const monthlyRequests = requestsPerDay * 30;
+
+            // Update token count
+            document.getElementById('tokenCount').textContent = inputTokens.toLocaleString();
+
+            // Update context bar
+            document.getElementById('contextPercent').textContent = contextPercent.toFixed(1) + '%';
+            document.getElementById('contextBar').style.width = contextPercent + '%';
+            document.getElementById('contextBar').className = `h-3 rounded-full transition-all ${contextPercent > 80 ? 'bg-red-500' : contextPercent > 50 ? 'bg-yellow-500' : 'bg-green-500'}`;
+
+            // Calculate costs for each model
+            const costTable = document.getElementById('costTable');
+            let lowestCost = Infinity;
+            let lowestModel = '';
+
+            const costs = models.map(m => {
+                const inputCost = (inputTokens / 1000000) * m.input;
+                const outputCost = (outputTokens / 1000000) * m.output;
+                const perRequest = inputCost + outputCost;
+                const monthly = perRequest * monthlyRequests;
+
+                if (monthly < lowestCost && monthly > 0) {
+                    lowestCost = monthly;
+                    lowestModel = m.name;
+                }
+
+                return { name: m.name, perRequest, monthly };
+            });
+
+            costTable.innerHTML = costs.map(c => `
+                <div class="flex justify-between py-2 ${c.name === lowestModel ? 'text-green-700 font-medium' : 'text-gray-600'}">
+                    <span>${c.name} ${c.name === lowestModel ? '(Best Value)' : ''}</span>
+                    <span>$${c.perRequest.toFixed(4)}/req</span>
+                </div>
+            `).join('');
+
+            // Monthly cost (using Sonnet as default)
+            const sonnetCost = costs.find(c => c.name === 'Claude 4.5 Sonnet');
+            document.getElementById('monthlyCost').textContent = '$' + (sonnetCost?.monthly || 0).toFixed(2);
+            document.getElementById('monthlyRequests').textContent = monthlyRequests.toLocaleString();
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise AI Flow - From Blueprint to Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <nav class="text-sm text-gray-500">
+                <a href="../../" class="hover:text-orange-600">From Blueprint to Application</a>
+                <span class="mx-2">/</span>
+                <a href="../" class="hover:text-orange-600">Demos</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-900">Enterprise Flow</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">90-Day Enterprise AI Journey</h1>
+            <p class="text-gray-600">Visualize your path from AI beginner to enterprise transformation</p>
+        </div>
+
+        <!-- Phase Selector -->
+        <div class="flex justify-center gap-2 mb-8">
+            <button onclick="showPhase(0)" id="btn0" class="px-6 py-2 rounded-full bg-orange-600 text-white font-medium">Foundation</button>
+            <button onclick="showPhase(1)" id="btn1" class="px-6 py-2 rounded-full bg-gray-200 text-gray-600 font-medium hover:bg-gray-300">Scaling</button>
+            <button onclick="showPhase(2)" id="btn2" class="px-6 py-2 rounded-full bg-gray-200 text-gray-600 font-medium hover:bg-gray-300">Optimization</button>
+        </div>
+
+        <!-- Timeline -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="relative">
+                <!-- Progress Bar -->
+                <div class="absolute top-5 left-0 right-0 h-1 bg-gray-200 rounded">
+                    <div id="progressBar" class="h-1 bg-orange-500 rounded transition-all duration-500" style="width: 33%"></div>
+                </div>
+
+                <!-- Week Markers -->
+                <div class="flex justify-between relative">
+                    <div class="text-center">
+                        <div class="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold mx-auto">1</div>
+                        <div class="text-xs text-gray-500 mt-2">Week 1-4</div>
+                    </div>
+                    <div class="text-center">
+                        <div id="marker1" class="w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center font-bold mx-auto">2</div>
+                        <div class="text-xs text-gray-500 mt-2">Week 5-8</div>
+                    </div>
+                    <div class="text-center">
+                        <div id="marker2" class="w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center font-bold mx-auto">3</div>
+                        <div class="text-xs text-gray-500 mt-2">Week 9-12</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase Content -->
+        <div id="phaseContent" class="grid md:grid-cols-2 gap-6">
+            <!-- Content rendered by JS -->
+        </div>
+
+        <!-- Milestones -->
+        <div class="mt-8 bg-white rounded-xl shadow-md p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Key Milestones</h2>
+            <div id="milestones" class="grid md:grid-cols-3 gap-4">
+                <!-- Milestones rendered by JS -->
+            </div>
+        </div>
+
+        <!-- Book Chapters -->
+        <div class="mt-8 bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white">
+            <h2 class="text-xl font-bold mb-4">Related Book Chapters</h2>
+            <div id="chapters" class="grid md:grid-cols-4 gap-4">
+                <!-- Chapters rendered by JS -->
+            </div>
+            <div class="mt-6 text-center">
+                <a href="https://subscribepage.io/from-blueprint-to-application" class="inline-block bg-white text-orange-600 font-semibold px-6 py-2 rounded-lg hover:bg-orange-50">
+                    Get the Complete Guide
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2026 Fredrik Brattén. All Rights Reserved.</p>
+            <p class="mt-2 text-sm"><a href="../" class="hover:text-white">Back to Demos</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const phases = [
+            {
+                name: "Foundation",
+                weeks: "1-4",
+                color: "orange",
+                focus: "Master the fundamentals of prompt engineering",
+                goals: [
+                    { icon: "📝", title: "Learn Prompt Basics", desc: "Understand how AI models process instructions" },
+                    { icon: "🎯", title: "Build First Templates", desc: "Create 10 reusable prompt templates" },
+                    { icon: "⚡", title: "Quick Wins", desc: "Automate your first 5 routine tasks" },
+                    { icon: "📊", title: "Measure Impact", desc: "Track time saved per task" }
+                ],
+                milestones: ["First prompt template", "5 hours saved", "Personal workflow"],
+                chapters: [1, 2, 3]
+            },
+            {
+                name: "Scaling",
+                weeks: "5-8",
+                color: "blue",
+                focus: "Scale AI usage across your team",
+                goals: [
+                    { icon: "📚", title: "Team Library", desc: "Create shared prompt repository" },
+                    { icon: "🔒", title: "Security Practices", desc: "Implement data protection guidelines" },
+                    { icon: "🏢", title: "Domain Specialization", desc: "Customize for your industry" },
+                    { icon: "👥", title: "Team Training", desc: "Enable colleagues with best practices" }
+                ],
+                milestones: ["20+ templates", "Team adoption", "Security compliance"],
+                chapters: [4, 5, 6]
+            },
+            {
+                name: "Optimization",
+                weeks: "9-12",
+                color: "purple",
+                focus: "Drive organizational transformation",
+                goals: [
+                    { icon: "🚀", title: "Advanced Techniques", desc: "Master chain-of-thought and few-shot" },
+                    { icon: "🔧", title: "Build Applications", desc: "Create AI-powered tools" },
+                    { icon: "🤖", title: "Autonomous Systems", desc: "Design multi-agent workflows" },
+                    { icon: "📈", title: "Enterprise Scale", desc: "Implement organization-wide AI strategy" }
+                ],
+                milestones: ["AI application", "Agent workflow", "Enterprise rollout"],
+                chapters: [7, 8, 9, 10, 11, 12]
+            }
+        ];
+
+        let currentPhase = 0;
+
+        function showPhase(idx) {
+            currentPhase = idx;
+            const phase = phases[idx];
+
+            // Update buttons
+            [0, 1, 2].forEach(i => {
+                const btn = document.getElementById('btn' + i);
+                if (i === idx) {
+                    btn.className = 'px-6 py-2 rounded-full bg-orange-600 text-white font-medium';
+                } else {
+                    btn.className = 'px-6 py-2 rounded-full bg-gray-200 text-gray-600 font-medium hover:bg-gray-300';
+                }
+            });
+
+            // Update progress
+            document.getElementById('progressBar').style.width = ((idx + 1) * 33) + '%';
+
+            // Update markers
+            [0, 1, 2].forEach(i => {
+                const marker = i === 0 ? null : document.getElementById('marker' + i);
+                if (marker) {
+                    if (i <= idx) {
+                        marker.className = 'w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold mx-auto';
+                    } else {
+                        marker.className = 'w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center font-bold mx-auto';
+                    }
+                }
+            });
+
+            // Render content
+            document.getElementById('phaseContent').innerHTML = `
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl font-bold text-orange-600">Phase ${idx + 1}</span>
+                        <span class="text-gray-500">Week ${phase.weeks}</span>
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-900 mb-2">${phase.name}</h2>
+                    <p class="text-gray-600">${phase.focus}</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="font-semibold text-gray-900 mb-4">Key Activities</h3>
+                    <div class="space-y-3">
+                        ${phase.goals.map(g => `
+                            <div class="flex gap-3">
+                                <span class="text-2xl">${g.icon}</span>
+                                <div>
+                                    <div class="font-medium text-gray-900">${g.title}</div>
+                                    <div class="text-sm text-gray-600">${g.desc}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Render milestones
+            document.getElementById('milestones').innerHTML = phases.map((p, i) => `
+                <div class="p-4 rounded-lg ${i <= idx ? 'bg-orange-50 border border-orange-200' : 'bg-gray-50 border border-gray-200'}">
+                    <div class="text-sm text-gray-500 mb-2">Phase ${i + 1}: ${p.name}</div>
+                    <ul class="space-y-1">
+                        ${p.milestones.map(m => `
+                            <li class="flex items-center gap-2 text-sm ${i <= idx ? 'text-orange-700' : 'text-gray-500'}">
+                                ${i <= idx ? '<span class="text-green-500">✓</span>' : '<span class="text-gray-300">○</span>'}
+                                ${m}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            // Render chapters
+            document.getElementById('chapters').innerHTML = phase.chapters.map(ch => `
+                <div class="bg-white/20 rounded-lg p-3 text-center">
+                    <div class="text-2xl font-bold">${ch}</div>
+                    <div class="text-sm opacity-80">Chapter</div>
+                </div>
+            `).join('');
+        }
+
+        showPhase(0);
+    </script>
+</body>
+</html>
