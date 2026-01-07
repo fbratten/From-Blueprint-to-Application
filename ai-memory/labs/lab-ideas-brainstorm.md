@@ -1,7 +1,20 @@
 # Lab Ideas Brainstorm
 
 > Ideas for interactive labs and exercises related to the book
-> Status: Brainstorming phase
+> Status: Active development
+
+---
+
+## Implemented Labs (Live on GitHub Pages)
+
+| Lab | Chapter Connection | Status | URL |
+|-----|-------------------|--------|-----|
+| **Prompt Builder** | Ch 2: Building Blocks | ✅ Live | `/demos/prompt-builder/` |
+| **Model Selector** | Ch 8: From Prompt to Product | ✅ Live | `/demos/model-selector/` |
+| **Token Calculator** | Ch 8: Scaling Enterprise | ✅ Live | `/demos/token-calculator/` |
+| **Enterprise Flow** | Ch 9: Your 90-Day Plan | ✅ Live | `/demos/enterprise-flow/` |
+| **Injection Detection** | Ch 4: Security & Compliance | ✅ Live | `/demos/injection-detection/` |
+| **Few-Shot Builder** | Ch 6: Advanced Techniques | ✅ Live | `/demos/few-shot-builder/` |
 
 ---
 
@@ -15,6 +28,7 @@
 - [ ] **Lab: Context Loading Demo** - Show how background info changes responses
 
 #### Chapter 2: Building Blocks of Professional Prompts
+- [x] **Lab: Prompt Builder** - ✅ IMPLEMENTED - Construct prompts using RCT framework
 - [ ] **Lab: Ten Commandments Checker** - Evaluate prompts against the 10 rules
 - [ ] **Lab: Framework Selector** - Interactive tool to choose best prompting framework
 - [ ] **Lab: Chain-of-Thought Builder** - Step-by-step reasoning prompt constructor
@@ -27,7 +41,7 @@
 - [ ] **Lab: Categorization Exercise** - Organize prompts by use case
 
 #### Chapter 4: Security, Compliance, and Prompt Management
-- [ ] **Lab: Injection Detection** - Identify prompt injection vulnerabilities
+- [x] **Lab: Injection Detection** - ✅ IMPLEMENTED - Identify prompt injection vulnerabilities
 - [ ] **Lab: PII Filter Demo** - Test data sanitization techniques
 - [ ] **Lab: Compliance Checker** - Validate prompts against enterprise policies
 
@@ -41,7 +55,7 @@
 ### Part IV: Advanced Techniques
 
 #### Chapter 6: Advanced Prompt Engineering Techniques
-- [ ] **Lab: Few-Shot Learning Builder** - Create example-based prompts
+- [x] **Lab: Few-Shot Learning Builder** - ✅ IMPLEMENTED - Create example-based prompts
 - [ ] **Lab: Self-Consistency Tester** - Run multiple inference chains
 - [ ] **Lab: Prompt Optimization** - A/B test prompt variations
 
@@ -58,6 +72,7 @@
 ### Part V: Implementation Roadmap
 
 #### Chapter 9: Getting Started - Your 90-Day Plan
+- [x] **Lab: Enterprise Flow** - ✅ IMPLEMENTED - Visualize the 90-day implementation journey
 - [ ] **Lab: Personal Assessment** - Evaluate your current AI skills
 - [ ] **Lab: Goal Setting Tool** - Create your learning roadmap
 - [ ] **Lab: Progress Tracker** - Monitor your 90-day journey
@@ -88,8 +103,8 @@
 - [ ] **Weakness Identifier** - Find areas for improvement
 
 ### Tools & Calculators
-- [ ] **Token Counter** - Estimate prompt costs
-- [ ] **Model Selector** - Choose the right model for your task
+- [x] **Token Calculator** - ✅ IMPLEMENTED - Estimate prompt costs and context usage
+- [x] **Model Selector** - ✅ IMPLEMENTED - Choose the right model for your task
 - [ ] **Cost Calculator** - Budget AI expenses
 - [ ] **Context Window Visualizer** - Understand token limits
 
@@ -107,15 +122,18 @@
 
 ## Priority Matrix
 
-| Lab | Impact | Effort | Priority |
-|-----|--------|--------|----------|
-| Token Counter | High | Low | P1 |
-| Model Selector | High | Medium | P1 |
-| Prompt Builder | High | Medium | P1 |
-| Ten Commandments Checker | Medium | Low | P2 |
-| Enterprise Flow Demo | High | High | P2 |
-| Agent Architecture | Medium | High | P3 |
+| Lab | Impact | Effort | Priority | Status |
+|-----|--------|--------|----------|--------|
+| Token Calculator | High | Low | P1 | ✅ Done |
+| Model Selector | High | Medium | P1 | ✅ Done |
+| Prompt Builder | High | Medium | P1 | ✅ Done |
+| Enterprise Flow | High | High | P1 | ✅ Done |
+| Injection Detection | High | Medium | P1 | ✅ Done |
+| Few-Shot Builder | High | Medium | P1 | ✅ Done |
+| Ten Commandments Checker | Medium | Low | P2 | Planned |
+| Agent Architecture | Medium | High | P3 | Planned |
+| MCP Server Setup | Medium | High | P3 | Planned |
 
 ---
 
-*Last updated: 2026-01-06*
+*Last updated: 2026-01-07*
