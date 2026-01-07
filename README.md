@@ -89,6 +89,7 @@ Try these interactive tools to experience concepts from the book:
 | **Enterprise Flow** | Visualize the 90-day implementation journey | [Launch →](demos/enterprise-flow/) |
 | **Injection Detection** | Learn to identify prompt injection vulnerabilities | [Launch →](demos/injection-detection/) |
 | **Few-Shot Builder** | Create example-based prompts for consistent outputs | [Launch →](demos/few-shot-builder/) |
+| **MCP Server Setup** | Build your first MCP server (TypeScript & Python) | [Launch →](demos/mcp-server-setup/) |
 
 ---
 
