@@ -87,6 +87,8 @@ Try these interactive tools to experience concepts from the book:
 | **Model Selector** | Find the right AI model for your use case | [Launch →](demos/model-selector/) |
 | **Token Calculator** | Estimate API costs and context window usage | [Launch →](demos/token-calculator/) |
 | **Enterprise Flow** | Visualize the 90-day implementation journey | [Launch →](demos/enterprise-flow/) |
+| **Injection Detection** | Learn to identify prompt injection vulnerabilities | [Launch →](demos/injection-detection/) |
+| **Few-Shot Builder** | Create example-based prompts for consistent outputs | [Launch →](demos/few-shot-builder/) |
 
 ---
 

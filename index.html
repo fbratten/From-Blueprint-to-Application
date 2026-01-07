@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Blueprint to Application - Enterprise Prompt Engineering Guide</title>
+    <meta name="description" content="The Complete Guide to Enterprise Prompt Engineering. Transform AI trial-and-error into consistent, time-saving workflows through a structured 90-day journey.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .demo-card:hover {
+            border-color: #667eea;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <span class="font-bold text-lg">From Blueprint to Application</span>
+            <div class="flex gap-6 text-sm">
+                <a href="#demos" class="hover:text-gray-200 transition">Demos</a>
+                <a href="#chapters" class="hover:text-gray-200 transition">Chapters</a>
+                <a href="https://subscribepage.io/from-blueprint-to-application" class="bg-white text-purple-700 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition">Pre-Order</a>
+            </div>
+        </nav>
+
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-purple-200 font-medium mb-4">The Complete Guide to Enterprise Prompt Engineering</p>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">From Blueprint to Application</h1>
+                    <p class="text-xl text-purple-100 mb-8">Embark on a 90-Day Journey to Master AI and Future-Proof Your Career</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://subscribepage.io/from-blueprint-to-application" class="bg-white text-purple-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg">
+                            Pre-Order Now - 40% Off
+                        </a>
+                        <a href="#demos" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition">
+                            Try Free Demos
+                        </a>
+                    </div>
+                    <p class="text-purple-200 mt-4 text-sm">By Fredrik Bratten & Sasa Popovic</p>
+                </div>
+                <div class="flex justify-center">
+                    <img src="assets/book-cover.jpg" alt="From Blueprint to Application Book Cover" class="w-72 md:w-80 rounded-lg shadow-2xl transform hover:scale-105 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What You'll Achieve -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">What You'll Achieve</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Transform frustrating AI trial-and-error into consistent, time-saving workflows that actually deliver on AI's promise.</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Save 5+ Hours Weekly</h3>
+                    <p class="text-gray-600">Optimize routine tasks through proven AI workflows and templates</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Build Your Prompt Library</h3>
+                    <p class="text-gray-600">Create 20+ battle-tested templates for your specific domain</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Master Enterprise AI</h3>
+                    <p class="text-gray-600">Learn security, compliance, and governance best practices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demos -->
+    <section id="demos" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Interactive Demos</h2>
+            <p class="text-center text-gray-600 mb-12">Try these tools to experience concepts from the book</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Prompt Builder -->
+                <a href="demos/prompt-builder/" class="demo-card bg-white rounded-xl p-6 border-2 border-gray-100 card-hover transition duration-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Prompt Builder</h3>
+                    <p class="text-gray-600 text-sm mb-4">Construct professional prompts using the RCT framework</p>
+                    <span class="text-blue-600 font-medium text-sm">Try it &rarr;</span>
+                </a>
+
+                <!-- Model Selector -->
+                <a href="demos/model-selector/" class="demo-card bg-white rounded-xl p-6 border-2 border-gray-100 card-hover transition duration-300">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Model Selector</h3>
+                    <p class="text-gray-600 text-sm mb-4">Find the right AI model for your specific use case</p>
+                    <span class="text-green-600 font-medium text-sm">Try it &rarr;</span>
+                </a>
+
+                <!-- Token Calculator -->
+                <a href="demos/token-calculator/" class="demo-card bg-white rounded-xl p-6 border-2 border-gray-100 card-hover transition duration-300">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Token Calculator</h3>
+                    <p class="text-gray-600 text-sm mb-4">Estimate API costs and context window usage</p>
+                    <span class="text-yellow-600 font-medium text-sm">Try it &rarr;</span>
+                </a>
+
+                <!-- Enterprise Flow -->
+                <a href="demos/enterprise-flow/" class="demo-card bg-white rounded-xl p-6 border-2 border-gray-100 card-hover transition duration-300">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Enterprise Flow</h3>
+                    <p class="text-gray-600 text-sm mb-4">Visualize the 90-day implementation journey</p>
+                    <span class="text-purple-600 font-medium text-sm">Try it &rarr;</span>
+                </a>
+
+                <!-- Injection Detection -->
+                <a href="demos/injection-detection/" class="demo-card bg-white rounded-xl p-6 border-2 border-gray-100 card-hover transition duration-300">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Injection Detection</h3>
+                    <p class="text-gray-600 text-sm mb-4">Learn to identify prompt injection vulnerabilities</p>
+                    <span class="text-red-600 font-medium text-sm">Try it &rarr;</span>
+                </a>
+
+                <!-- Few-Shot Builder -->
+                <a href="demos/few-shot-builder/" class="demo-card bg-white rounded-xl p-6 border-2 border-gray-100 card-hover transition duration-300">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-gray-900">Few-Shot Builder</h3>
+                    <p class="text-gray-600 text-sm mb-4">Create example-based prompts for consistent outputs</p>
+                    <span class="text-indigo-600 font-medium text-sm">Try it &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Book Is For -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Who This Book Is For</h2>
+            <p class="text-center text-gray-600 mb-12">Whether you're just starting or leading enterprise transformation</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Beginners -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 card-hover transition duration-300">
+                    <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-900">Beginners</h3>
+                    <p class="text-blue-700 font-medium mb-4">New to AI</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Learn fundamentals from scratch
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Build your first prompt templates
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Save time on daily tasks
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Understand AI capabilities
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Intermediate -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 card-hover transition duration-300">
+                    <div class="w-14 h-14 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-900">Intermediate</h3>
+                    <p class="text-purple-700 font-medium mb-4">Team Leads & Managers</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Standardize AI usage
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Create team prompt libraries
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Implement governance
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Scale best practices
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Professionals -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 card-hover transition duration-300">
+                    <div class="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-900">Professionals</h3>
+                    <p class="text-green-700 font-medium mb-4">IT Directors & Leaders</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Drive transformation
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Architect enterprise AI
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Build autonomous systems
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Future-proof strategy
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Structure -->
+    <section id="chapters" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Book Structure</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Follow Sarah's journey - a professional who discovers prompt engineering and transforms her organization's approach to AI. Her story weaves through all 12 chapters, making complex concepts relatable and actionable.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Part I -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">I</span>
+                        <h3 class="font-semibold text-gray-900">Foundations</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex gap-2"><span class="text-blue-600 font-medium">Ch 1:</span> The Art and Science of AI Communication</li>
+                        <li class="flex gap-2"><span class="text-blue-600 font-medium">Ch 2:</span> Building Blocks of Professional Prompts</li>
+                    </ul>
+                </div>
+
+                <!-- Part II -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-purple-600 text-white rounded-lg flex items-center justify-center font-bold">II</span>
+                        <h3 class="font-semibold text-gray-900">Enterprise Library</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex gap-2"><span class="text-purple-600 font-medium">Ch 3:</span> Establishing a Centralized Prompt Library</li>
+                        <li class="flex gap-2"><span class="text-purple-600 font-medium">Ch 4:</span> Security, Compliance, and Prompt Management</li>
+                    </ul>
+                </div>
+
+                <!-- Part III -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-green-600 text-white rounded-lg flex items-center justify-center font-bold">III</span>
+                        <h3 class="font-semibold text-gray-900">Engineering in Practice</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex gap-2"><span class="text-green-600 font-medium">Ch 5:</span> Domain-Specific Prompt Applications</li>
+                    </ul>
+                </div>
+
+                <!-- Part IV -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-yellow-600 text-white rounded-lg flex items-center justify-center font-bold">IV</span>
+                        <h3 class="font-semibold text-gray-900">Advanced Techniques</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex gap-2"><span class="text-yellow-600 font-medium">Ch 6:</span> Advanced Prompt Engineering Techniques</li>
+                        <li class="flex gap-2"><span class="text-yellow-600 font-medium">Ch 7:</span> Esoteric Examples and Paradigm Shifts</li>
+                        <li class="flex gap-2"><span class="text-yellow-600 font-medium">Ch 8:</span> From Prompt to Product</li>
+                    </ul>
+                </div>
+
+                <!-- Part V -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-red-600 text-white rounded-lg flex items-center justify-center font-bold">V</span>
+                        <h3 class="font-semibold text-gray-900">Implementation Roadmap</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex gap-2"><span class="text-red-600 font-medium">Ch 9:</span> Getting Started - Your 90-Day Plan</li>
+                        <li class="flex gap-2"><span class="text-red-600 font-medium">Ch 10:</span> The Future of Prompt Engineering</li>
+                    </ul>
+                </div>
+
+                <!-- Part VI -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold">VI</span>
+                        <h3 class="font-semibold text-gray-900">Infrastructure Evolution</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex gap-2"><span class="text-indigo-600 font-medium">Ch 11:</span> Model Context Protocol (MCP)</li>
+                        <li class="flex gap-2"><span class="text-indigo-600 font-medium">Ch 12:</span> From Assistants to Collaborators - AI Agents</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-center text-gray-500 mt-8"><strong>Plus:</strong> 5 comprehensive appendices with templates, tools, glossary, and reference guides.</p>
+        </div>
+    </section>
+
+    <!-- 90-Day Journey -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">The 90-Day Journey</h2>
+            <p class="text-center text-gray-600 mb-12">A structured path from AI novice to enterprise expert</p>
+
+            <div class="space-y-6">
+                <!-- Week 1-4 -->
+                <div class="flex gap-6 items-start">
+                    <div class="w-24 flex-shrink-0 text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto font-bold text-lg">1-4</div>
+                        <p class="text-sm text-gray-500 mt-2">Weeks</p>
+                    </div>
+                    <div class="flex-1 bg-blue-50 rounded-xl p-6">
+                        <h3 class="font-semibold text-lg text-gray-900 mb-3">Foundation</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+                                Master prompt fundamentals
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+                                Build your first 10 templates
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+                                Establish personal workflows
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Week 5-8 -->
+                <div class="flex gap-6 items-start">
+                    <div class="w-24 flex-shrink-0 text-center">
+                        <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto font-bold text-lg">5-8</div>
+                        <p class="text-sm text-gray-500 mt-2">Weeks</p>
+                    </div>
+                    <div class="flex-1 bg-purple-50 rounded-xl p-6">
+                        <h3 class="font-semibold text-lg text-gray-900 mb-3">Scaling</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-purple-600 rounded-full"></span>
+                                Create team prompt library
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-purple-600 rounded-full"></span>
+                                Implement security practices
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-purple-600 rounded-full"></span>
+                                Domain specialization
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Week 9-12 -->
+                <div class="flex gap-6 items-start">
+                    <div class="w-24 flex-shrink-0 text-center">
+                        <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto font-bold text-lg">9-12</div>
+                        <p class="text-sm text-gray-500 mt-2">Weeks</p>
+                    </div>
+                    <div class="flex-1 bg-green-50 rounded-xl p-6">
+                        <h3 class="font-semibold text-lg text-gray-900 mb-3">Optimization</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+                                Advanced techniques
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+                                Enterprise integration
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+                                Autonomous systems
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 hero-gradient text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your AI Skills?</h2>
+            <p class="text-xl text-purple-100 mb-8">Get early access at 40% off the regular price</p>
+
+            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 max-w-md mx-auto mb-8">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <span class="text-4xl font-bold">249 SEK</span>
+                    <span class="text-purple-200 line-through text-xl">399 SEK</span>
+                </div>
+                <p class="text-purple-200 text-sm mb-6">Pre-release offer - Save 40%</p>
+                <a href="https://subscribepage.io/from-blueprint-to-application" class="block w-full bg-white text-purple-700 py-4 rounded-lg font-semibold hover:bg-gray-100 transition text-lg">
+                    Reserve Your Copy Now
+                </a>
+            </div>
+
+            <p class="text-purple-200 text-sm">"The best time to master AI was yesterday. The second best time is today."</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-semibold mb-4">From Blueprint to Application</h3>
+                    <p class="text-sm">The Complete Guide to Enterprise Prompt Engineering</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#demos" class="hover:text-white transition">Interactive Demos</a></li>
+                        <li><a href="#chapters" class="hover:text-white transition">Book Chapters</a></li>
+                        <li><a href="docs/overview.html" class="hover:text-white transition">Documentation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Authors</h3>
+                    <p class="text-sm">Fredrik Bratten</p>
+                    <p class="text-sm">Sasa Popovic (Chapter 12)</p>
+                    <a href="https://github.com/fbratten" class="text-sm hover:text-white transition">GitHub</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2026 Fredrik Bratten. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
