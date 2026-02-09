@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five-Point Prompt Verification System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 p-6 md:p-12">
+
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header -->
+        <header class="mb-12 border-b border-slate-200 pb-6">
+            <h1 class="text-3xl font-bold text-slate-900 mb-2">The Five-Point Prompt Verification System</h1>
+            <p class="text-lg text-slate-600">A structured meta-prompt protocol for alignment, reasoning transparency, and deviation detection.</p>
+        </header>
+
+        <!-- The 5 Steps Grid -->
+        <section class="mb-16">
+            <h2 class="text-xl font-bold text-slate-900 mb-6 uppercase tracking-wider text-sm">The Workflow</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <!-- Step 1 -->
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-indigo-600 font-bold text-lg mb-2">01</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Clarification</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Paraphrase and restate the user’s task to confirm comprehension.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-indigo-600 font-bold text-lg mb-2">02</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Scope Validation</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Explicitly list what is In Scope versus Out of Scope.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-indigo-600 font-bold text-lg mb-2">03</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Reasoning Plan</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Outline the logical steps or workflow before acting.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-indigo-600 font-bold text-lg mb-2">04</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Execution</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Perform the task exactly according to the plan boundaries.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-indigo-600 font-bold text-lg mb-2">05</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Verification</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Self-audit for drift, errors, or missing data.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Copy-Paste Template -->
+        <section class="mb-12">
+            <div class="flex justify-between items-end mb-4">
+                <h2 class="text-xl font-bold text-slate-900 uppercase tracking-wider text-sm">Meta-Prompt Template</h2>
+                <button onclick="copyToClipboard()" class="text-sm bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded transition shadow-sm font-medium">
+                    Copy Template
+                </button>
+            </div>
+            
+            <div class="relative">
+                <textarea id="promptTemplate" class="w-full h-96 p-6 font-mono text-sm bg-slate-900 text-slate-200 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500" readonly>
+# Five-Point Prompt Verification Protocol
+
+## Step 1 – Clarification
+Restate my task in your own words to ensure understanding. Identify the core objective and any implicit assumptions you detect.
+
+## Step 2 – Scope Validation
+List explicitly:
+- What is in scope of this task
+- What is out of scope (to avoid drift or unnecessary expansion)
+
+## Step 3 – Reasoning Plan
+Before execution, outline your proposed reasoning or workflow, step by step, showing how you’ll achieve the objective logically and efficiently.
+
+## Step 4 – Execution
+Perform the task exactly as specified, adhering to the boundaries and reasoning plan above.
+
+## Step 5 – Verification & Feedback
+After completion:
+- Summarize how your output aligns with my intent.
+- Identify any potential uncertainties, missing data, or weak points.
+- Ask for my confirmation before we finalize or iterate further.
+
+---
+Context: {{context or background}}
+Task: {{task or objective}}
+Output format: {{desired output format}}
+Constraints: {{rules, tone, limitations}}
+</textarea>
+                <div id="copyMessage" class="absolute top-4 right-4 bg-green-500 text-white text-xs px-2 py-1 rounded opacity-0 transition-opacity duration-300">Copied!</div>
+            </div>
+        </section>
+
+        <!-- Advanced Options Table -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 border-b border-slate-100 bg-slate-50">
+                <h2 class="font-bold text-slate-900">Advanced: Self-Audit Mode</h2>
+                <p class="text-sm text-slate-500 mt-1">Use this extension for critical, high-stakes tasks.</p>
+            </div>
+            <div class="p-6">
+                <ol class="list-decimal list-inside space-y-3 text-slate-700 text-sm">
+                    <li><span class="font-medium">Compare reasoning</span> against the original task summary.</li>
+                    <li><span class="font-medium">Flag inconsistencies</span> or assumptions made during generation.</li>
+                    <li><span class="font-medium">State confidence level</span> (0-100%) in key decisions.</li>
+                    <li><span class="font-medium">Suggest refinement</span> or test for human review.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Strategic Implementation Section -->
+        <section class="mt-12 border-t border-slate-200 pt-12">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">Strategic Implementation for AI Agents</h2>
+            <p class="text-slate-600 mb-8 max-w-3xl">
+                By enforcing a "measure twice, cut once" philosophy, this protocol transforms standard LLM interactions into self-correcting agentic workflows. It forces the model to introspect before executing, significantly reducing error rates in complex tasks.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Column 1: The Self-Introspective Workflow -->
+                <div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-4 flex items-center">
+                        <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded uppercase tracking-wide mr-3">Workflow</span>
+                        The Self-Introspective Loop
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 h-full">
+                        <ul class="space-y-4 text-sm text-slate-700">
+                            <li class="flex items-start">
+                                <span class="text-indigo-500 mr-2">●</span>
+                                <span><strong>Hallucination Dampening:</strong> By forcing the AI to explicitly state "What is Out of Scope" (Step 2), you prevent the model from inventing requirements that don't exist.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-indigo-500 mr-2">●</span>
+                                <span><strong>Chain-of-Thought Verification:</strong> Step 3 (Reasoning Plan) acts as a blueprint. If the plan is flawed, the user can stop generation before the expensive Execution phase (Step 4).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-indigo-500 mr-2">●</span>
+                                <span><strong>Drift Detection:</strong> The final Verification step forces the AI to look back at its own work, often catching errors it missed during the initial generation.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 2: High-Value Use Cases -->
+                <div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-4 flex items-center">
+                        <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded uppercase tracking-wide mr-3">Application</span>
+                        Critical Use Cases
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- Use Case Card 1 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm">💻 Autonomous Code Generation</h4>
+                            <p class="text-xs text-slate-600 mt-1">Before writing code, the Agent confirms the logic path and verifies security constraints, preventing "spaghetti code" or insecure implementations.</p>
+                        </div>
+                        <!-- Use Case Card 2 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm">🧠 Complex Strategy & Research</h4>
+                            <p class="text-xs text-slate-600 mt-1">The Agent defines strict boundaries (time period, domain) to ensure research remains relevant, then validates facts against the initial scope.</p>
+                        </div>
+                        <!-- Use Case Card 3 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm">🔄 RAG & Multi-Model Systems</h4>
+                            <p class="text-xs text-slate-600 mt-1">Acts as a handshake protocol between systems, ensuring the output of one model meets the strict input requirements of the next.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Benefits Summary -->
+            <div class="mt-8 bg-indigo-50 rounded-xl p-6 border border-indigo-100">
+                <h3 class="font-bold text-indigo-900 text-sm uppercase tracking-wide mb-3">Core Benefits Summary</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div>
+                        <span class="block font-bold text-indigo-700">🔒 Reliability</span>
+                        <span class="text-indigo-600 text-xs">Prevents assumption-based errors.</span>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-indigo-700">🧩 Transparency</span>
+                        <span class="text-indigo-600 text-xs">Exposes the "Why" behind the "What".</span>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-indigo-700">🪞 Self-Diagnosis</span>
+                        <span class="text-indigo-600 text-xs">Catches errors before production.</span>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-indigo-700">♻️ Trainability</span>
+                        <span class="text-indigo-600 text-xs">Creates a feedback loop for fine-tuning.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Protocol Variations (Derived from Advanced Usage) -->
+        <section class="mt-12 border-t border-slate-200 pt-12 mb-12">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">Protocol Variations & Adaptations</h2>
+            <p class="text-slate-600 mb-8 max-w-3xl">
+                Standard protocols prevent <em>misunderstanding</em>. These advanced variations are designed to prevent <em>execution drift</em> in strict environments (coding, data formatting, API responses).
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Variation A: Constraint-Hardened -->
+                <div class="bg-slate-900 text-slate-200 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-emerald-500 w-2 h-8 rounded-full mr-3"></div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Variation A: Constraint-Hardened</h3>
+                            <p class="text-xs text-slate-400 uppercase tracking-wide">For Strict Formatting / Code</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-6 leading-relaxed">
+                        Use this when the AI understands the <em>task</em> but fails the <em>specs</em> (e.g., character counts, JSON syntax, specific tags). It shifts the focus from "Cognitive" to "Mechanical".
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex bg-slate-800 p-3 rounded border border-slate-700">
+                            <span class="font-mono text-emerald-400 font-bold mr-3">02</span>
+                            <div>
+                                <span class="block text-xs text-slate-500 uppercase font-bold">Scope &rarr; Locking</span>
+                                <span class="text-sm text-slate-300">Don't just list scope. <strong class="text-white">Lock hard constraints</strong> (e.g., "Exactly 4 tags", "Max 700 chars").</span>
+                            </div>
+                        </div>
+                        <div class="flex bg-slate-800 p-3 rounded border border-slate-700">
+                            <span class="font-mono text-emerald-400 font-bold mr-3">03</span>
+                            <div>
+                                <span class="block text-xs text-slate-500 uppercase font-bold">Plan &rarr; Skeleton</span>
+                                <span class="text-sm text-slate-300">Don't just plan logic. <strong class="text-white">Pre-generate the empty structure</strong> or headers before filling content.</span>
+                            </div>
+                        </div>
+                        <div class="flex bg-slate-800 p-3 rounded border border-slate-700">
+                            <span class="font-mono text-emerald-400 font-bold mr-3">05</span>
+                            <div>
+                                <span class="block text-xs text-slate-500 uppercase font-bold">Verification &rarr; Audit</span>
+                                <span class="text-sm text-slate-300">Don't reflect. <strong class="text-white">Measure</strong>. Count the tags. Check the syntax. If X != Y, stop.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Variation B: The Silent Protocol -->
+                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-500 w-2 h-8 rounded-full mr-3"></div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">Variation B: The Silent Protocol</h3>
+                            <p class="text-xs text-slate-400 uppercase tracking-wide">For API / Production outputs</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                        Use this when "Meta-Commentary" is forbidden (e.g., generating pure JSON or API responses). The protocol runs as a hidden "mental checklist" or pre-computation step.
+                    </p>
+                    <ul class="space-y-4 text-sm text-slate-700">
+                        <li class="flex items-start">
+                            <span class="text-indigo-500 font-bold mr-2">1.</span>
+                            <span><strong>Internalize:</strong> Steps 1-3 happen in the model's "thinking space" or strictly as a pre-processing check, not visible text.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-500 font-bold mr-2">2.</span>
+                            <span><strong>Embed Instructions:</strong> Instead of conversational turns, embed the constraints into the system prompt's execution phase.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-500 font-bold mr-2">3.</span>
+                            <span><strong>Clean Output:</strong> The user sees ONLY the final result, but the result has been "hardened" by the invisible protocol running in the background.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const copyText = document.getElementById("promptTemplate");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); 
+            document.execCommand("copy");
+            
+            const msg = document.getElementById("copyMessage");
+            msg.classList.remove("opacity-0");
+            setTimeout(() => {
+                msg.classList.add("opacity-0");
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
