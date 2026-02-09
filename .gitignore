@@ -1,6 +1,9 @@
 # AI Memory / Internal Planning
 ai-memory/
 
+# MCP configuration (local machine paths)
+.mcp.json
+
 # Dependencies
 node_modules/
 .venv/
