@@ -186,9 +186,11 @@ Get early access at **40% off** the regular price.
 
 ## License
 
-Copyright © 2026 Fredrik Brattén. All Rights Reserved.
+Copyright © 2026 Fredrik Brattén / Adaptivearts.ai®. All Rights Reserved.
 
 This showcase repository contains promotional materials and interactive demos for educational purposes. The full book content is protected by copyright.
+
+Adaptivearts.ai® is a registered trademark (varumärkesskyddat, PRV).
 
 ---
 
