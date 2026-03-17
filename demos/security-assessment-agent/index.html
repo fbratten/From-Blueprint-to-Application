@@ -72,7 +72,7 @@
         <section class="mb-10">
             <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Agent Architecture</h2>
             <div class="bg-white rounded-xl border border-slate-200 p-6">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
                     <div class="text-center p-4 bg-red-50 rounded-lg border border-red-100">
                         <div class="text-2xl mb-2">🎭</div>
                         <h3 class="font-bold text-sm text-slate-900">Persona Loader</h3>
@@ -93,12 +93,20 @@
                         <h3 class="font-bold text-sm text-slate-900">Report Generator</h3>
                         <p class="text-xs text-slate-500 mt-1">OWASP table, severity findings, remediation actions, confidence</p>
                     </div>
-                </div>
-                <div class="mt-4 text-center">
-                    <div class="inline-flex items-center gap-2 text-xs text-slate-500 bg-slate-50 px-4 py-2 rounded-full">
-                        <span class="w-2 h-2 bg-green-400 rounded-full agent-pulse"></span>
-                        Persona + Protocol + Tools = Reliable Autonomous Agent
+                    <div class="text-center p-4 bg-purple-50 rounded-lg border border-purple-100">
+                        <div class="text-2xl mb-2">🧠</div>
+                        <h3 class="font-bold text-sm text-slate-900">Memory</h3>
+                        <p class="text-xs text-slate-500 mt-1">Cross-session persistence, remediation tracking, pattern recognition</p>
                     </div>
+                </div>
+                <div class="mt-6 bg-slate-50 rounded-lg p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 bg-green-400 rounded-full agent-pulse"></span>
+                        <span class="text-sm font-bold text-slate-700">Domain Persona + Structured Protocol + Specialized Tools + Memory = Reliable Autonomous Agent</span>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Each component is essential. The <strong>persona</strong> constrains behavior to domain expertise (preventing generic responses). The <strong>protocol</strong> enforces systematic execution (preventing drift and hallucination). The <strong>tools</strong> provide real capabilities (scanners, analyzers, reporters). And <strong>memory</strong> enables cross-session learning (tracking remediation, recognizing recurring patterns). Remove any one element and the agent degrades - a persona without protocol hallucinates, tools without persona lack judgment, protocol without tools produces theory instead of results.
+                    </p>
                 </div>
             </div>
         </section>
@@ -124,11 +132,11 @@
                 </div>
                 <div class="flex flex-wrap gap-2 mt-3">
                     <span class="text-xs text-slate-400">Integrations to audit:</span>
-                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> Netlify</label>
-                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> Supabase</label>
-                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> GitHub Actions</label>
-                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" class="rounded"> SendGrid</label>
-                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" class="rounded"> Stripe</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> CDN / Hosting</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> Database / BaaS</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> CI/CD Pipeline</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" class="rounded"> Email Service</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" class="rounded"> Payment Gateway</label>
                 </div>
             </div>
 
@@ -247,35 +255,35 @@
             { type: 'plan', text: 'Step 9: OWASP Top 10 mapping and report generation' },
         ]},
         { phase: '4', label: 'EXECUTION', color: 'green', lines: [
-            { type: 'scan', text: 'Scanning HTTP headers...' },
+            { type: 'scan', text: 'Scanning HTTP security headers...' },
             { type: 'pass', text: 'HSTS: max-age=31536000; includeSubDomains; preload' },
             { type: 'pass', text: 'X-Frame-Options: DENY' },
             { type: 'pass', text: 'X-Content-Type-Options: nosniff' },
             { type: 'pass', text: 'Referrer-Policy: strict-origin-when-cross-origin' },
-            { type: 'warn', text: 'CSP: script-src includes unsafe-inline (required by framework)' },
-            { type: 'scan', text: 'Testing sensitive file exposure...' },
-            { type: 'pass', text: '.env -> 404 | .git/config -> 404 | package.json -> 404 | CLAUDE.md -> 404' },
+            { type: 'warn', text: 'CSP: script-src includes unsafe-inline (common in SSG frameworks)' },
+            { type: 'scan', text: 'Testing sensitive file exposure (12 paths)...' },
+            { type: 'pass', text: '.env -> 404 | .git/config -> 404 | package.json -> 404 | wp-admin -> 404' },
             { type: 'scan', text: 'Auditing client-side JavaScript bundles...' },
-            { type: 'pass', text: 'No API keys found in HTML (0 pages)' },
-            { type: 'pass', text: 'No source maps exposed' },
-            { type: 'pass', text: 'No Supabase service_role key in bundles' },
-            { type: 'scan', text: 'Analyzing CSP directives...' },
-            { type: 'warn', text: 'connect-src uses wildcard https://*.supabase.co - data exfiltration risk' },
-            { type: 'warn', text: 'Missing base-uri directive - allows base tag injection' },
-            { type: 'warn', text: 'Missing form-action directive - allows form submission to external URLs' },
-            { type: 'scan', text: 'Testing Supabase RLS policies (anon key)...' },
-            { type: 'pass', text: 'Anon can read published articles: YES (expected)' },
-            { type: 'pass', text: 'Anon can read draft articles: NO (blocked by RLS)' },
-            { type: 'pass', text: 'Anon can INSERT articles: NO (RLS violation)' },
-            { type: 'pass', text: 'Anon can read user_roles: NO (empty result)' },
-            { type: 'scan', text: 'Testing Edge Function security...' },
-            { type: 'pass', text: 'gemini-proxy: requires authentication (401 without JWT)' },
-            { type: 'pass', text: 'contact-form: rate limiting active (3/IP per 30min)' },
-            { type: 'pass', text: 'contact-form: prompt injection detected and blocked' },
-            { type: 'scan', text: 'Auditing CI/CD integration...' },
-            { type: 'fail', text: 'GitHub: No branch protection on main branch!' },
-            { type: 'pass', text: 'GitHub: Secrets properly configured (7 secrets)' },
-            { type: 'pass', text: 'Netlify: Auto-builds disabled (CLI deploy only)' },
+            { type: 'pass', text: 'No API keys found in HTML across 8 pages' },
+            { type: 'pass', text: 'No source maps exposed in production build' },
+            { type: 'pass', text: 'No service/admin tokens leaked in JS bundles' },
+            { type: 'scan', text: 'Analyzing Content Security Policy...' },
+            { type: 'warn', text: 'connect-src uses wildcard for backend API - could be tightened' },
+            { type: 'warn', text: 'Missing base-uri directive - base tag injection possible' },
+            { type: 'pass', text: 'frame-ancestors: none - clickjacking blocked' },
+            { type: 'scan', text: 'Testing database access control policies...' },
+            { type: 'pass', text: 'Anonymous: read public content YES (expected)' },
+            { type: 'pass', text: 'Anonymous: read private content NO (access denied)' },
+            { type: 'pass', text: 'Anonymous: write operations NO (policy violation)' },
+            { type: 'pass', text: 'Anonymous: admin tables NO (permission denied)' },
+            { type: 'scan', text: 'Testing serverless function security...' },
+            { type: 'pass', text: 'Protected endpoints: return 401 without valid token' },
+            { type: 'pass', text: 'Public endpoints: rate limiting active (backoff enforced)' },
+            { type: 'pass', text: 'Input validation: prompt injection detected and neutralized' },
+            { type: 'scan', text: 'Auditing CI/CD pipeline integration...' },
+            { type: 'fail', text: 'No branch protection rules configured on production branch!' },
+            { type: 'warn', text: 'Deploy token has no expiry date - should rotate periodically' },
+            { type: 'pass', text: 'Secrets properly stored (not hardcoded in workflow files)' },
         ]},
         { phase: '5', label: 'VERIFICATION', color: 'amber', lines: [
             { type: 'verify', text: 'Self-audit: 9/9 planned checks executed. No untested areas.' },
@@ -391,10 +399,11 @@
         <div class="bg-white rounded-xl border border-slate-200 p-4">
             <h3 class="font-bold text-sm mb-3">Priority Actions</h3>
             <div class="space-y-2 text-sm">
-                <div class="flex items-start gap-2"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">HIGH</span><span>Enable GitHub branch protection on main (require PR reviews)</span></div>
-                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Tighten CSP connect-src wildcard to specific Supabase project</span></div>
-                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Add base-uri and form-action CSP directives</span></div>
-                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Implement persistent rate limiting (Supabase table vs in-memory)</span></div>
+                <div class="flex items-start gap-2"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">HIGH</span><span>Enable branch protection on production branch (require PR reviews + status checks)</span></div>
+                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Tighten CSP connect-src from wildcard to specific backend endpoint</span></div>
+                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Add missing CSP directives: base-uri, form-action, upgrade-insecure-requests</span></div>
+                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Implement persistent rate limiting (database-backed vs in-memory counters)</span></div>
+                <div class="flex items-start gap-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">LOW</span><span>Rotate deploy tokens periodically and set expiry dates</span></div>
             </div>
             <div class="mt-4 text-xs text-slate-500 bg-slate-50 p-3 rounded">
                 <strong>NIS2 Compliance Note:</strong> Article 21(2)(a) requires "policies on risk analysis and information system security." This assessment report, with its structured protocol and OWASP mapping, serves as evidence of systematic risk analysis. Store in your ISMS documentation.
