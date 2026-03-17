@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Security Assessment - From Blueprint to Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        code, .mono { font-family: 'JetBrains Mono', monospace; }
+        @keyframes pulse-green { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .agent-pulse { animation: pulse-green 1.5s ease-in-out infinite; }
+        @keyframes typewriter { from { width: 0; } to { width: 100%; } }
+        .scan-line { overflow: hidden; white-space: nowrap; animation: typewriter 0.8s steps(40) forwards; }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-4">
+            <nav class="text-sm text-gray-500">
+                <a href="../../" class="hover:text-blue-600">From Blueprint to Application</a>
+                <span class="mx-2">/</span>
+                <a href="../" class="hover:text-blue-600">Interactive Demos</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-900">Agentic Security Assessment</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8">
+
+        <!-- Title -->
+        <div class="mb-10 border-b border-slate-200 pb-6">
+            <div class="flex items-center gap-3 mb-3">
+                <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Advanced Techniques</span>
+                <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Autonomous Systems</span>
+                <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Chapters 11-12</span>
+            </div>
+            <h1 class="text-3xl font-bold text-slate-900 mb-2">Agentic Security Assessment</h1>
+            <p class="text-lg text-slate-600">An autonomous AI agent that conducts OWASP-compliant security audits using persona engineering, the Five-Point Protocol, and structured scanning - demonstrating how enterprises can build reliable, auditable AI systems for cybersecurity.</p>
+        </div>
+
+        <!-- Enterprise Context Banner -->
+        <div class="bg-gradient-to-r from-slate-900 to-indigo-900 text-white rounded-xl p-6 mb-10">
+            <div class="flex items-start gap-4">
+                <div class="bg-white/10 p-3 rounded-lg flex-shrink-0">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <div>
+                    <h2 class="font-bold text-lg mb-1">Enterprise Cybersecurity Context</h2>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        In regulated environments, AI-assisted security assessments must be <strong>auditable</strong>, <strong>repeatable</strong>, and <strong>compliant</strong> with standards like the <strong>EU NIS2 Directive</strong> (Network and Information Security), <strong>ISO 27001</strong> (Information Security Management), and <strong>OWASP ASVS</strong> (Application Security Verification Standard). This demo shows how persona engineering + structured protocols make AI security work enterprise-grade.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="bg-white/10 text-white/90 text-xs px-2 py-1 rounded">NIS2 Directive</span>
+                        <span class="bg-white/10 text-white/90 text-xs px-2 py-1 rounded">ISO 27001</span>
+                        <span class="bg-white/10 text-white/90 text-xs px-2 py-1 rounded">OWASP Top 10</span>
+                        <span class="bg-white/10 text-white/90 text-xs px-2 py-1 rounded">OWASP ASVS</span>
+                        <span class="bg-white/10 text-white/90 text-xs px-2 py-1 rounded">GDPR Art. 32</span>
+                        <span class="bg-white/10 text-white/90 text-xs px-2 py-1 rounded">SOC 2 Type II</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Architecture -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Agent Architecture</h2>
+            <div class="bg-white rounded-xl border border-slate-200 p-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-center p-4 bg-red-50 rounded-lg border border-red-100">
+                        <div class="text-2xl mb-2">🎭</div>
+                        <h3 class="font-bold text-sm text-slate-900">Persona Loader</h3>
+                        <p class="text-xs text-slate-500 mt-1">Cybersecurity expert identity, OWASP knowledge, attacker mindset</p>
+                    </div>
+                    <div class="text-center p-4 bg-indigo-50 rounded-lg border border-indigo-100">
+                        <div class="text-2xl mb-2">📋</div>
+                        <h3 class="font-bold text-sm text-slate-900">Five-Point Protocol</h3>
+                        <p class="text-xs text-slate-500 mt-1">Structured execution: Clarify, Scope, Plan, Execute, Verify</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg border border-green-100">
+                        <div class="text-2xl mb-2">🔍</div>
+                        <h3 class="font-bold text-sm text-slate-900">Scanner Tools</h3>
+                        <p class="text-xs text-slate-500 mt-1">Headers, secrets, CSP, RLS, APIs, integrations, OWASP mapping</p>
+                    </div>
+                    <div class="text-center p-4 bg-amber-50 rounded-lg border border-amber-100">
+                        <div class="text-2xl mb-2">📊</div>
+                        <h3 class="font-bold text-sm text-slate-900">Report Generator</h3>
+                        <p class="text-xs text-slate-500 mt-1">OWASP table, severity findings, remediation actions, confidence</p>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <div class="inline-flex items-center gap-2 text-xs text-slate-500 bg-slate-50 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 bg-green-400 rounded-full agent-pulse"></span>
+                        Persona + Protocol + Tools = Reliable Autonomous Agent
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo: Run Assessment -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Interactive: Run an Assessment</h2>
+
+            <!-- Target Input -->
+            <div class="bg-white rounded-xl border border-slate-200 p-6 mb-4">
+                <label class="block text-sm font-medium text-slate-700 mb-2">Target URL</label>
+                <div class="flex gap-3">
+                    <input type="text" id="targetUrl" value="https://example-app.netlify.app" class="flex-1 border border-slate-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 mono" placeholder="https://your-app.com">
+                    <select id="framework" class="border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                        <option value="owasp">OWASP Top 10</option>
+                        <option value="nis2">NIS2 Directive</option>
+                        <option value="iso27001">ISO 27001</option>
+                    </select>
+                    <button onclick="runAssessment()" id="runBtn" class="bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        Run Assessment
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-3">
+                    <span class="text-xs text-slate-400">Integrations to audit:</span>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> Netlify</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> Supabase</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" checked class="rounded"> GitHub Actions</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" class="rounded"> SendGrid</label>
+                    <label class="flex items-center gap-1 text-xs"><input type="checkbox" class="rounded"> Stripe</label>
+                </div>
+            </div>
+
+            <!-- Agent Console -->
+            <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-700">
+                <div class="flex items-center gap-2 px-4 py-2 bg-slate-800 border-b border-slate-700">
+                    <div class="flex gap-1.5">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span class="text-xs text-slate-400 mono ml-2">security-assessment-agent</span>
+                    <div id="agentStatus" class="ml-auto flex items-center gap-2 text-xs text-slate-500">
+                        <span class="w-2 h-2 bg-slate-500 rounded-full"></span> Idle
+                    </div>
+                </div>
+                <div id="console" class="p-4 h-96 overflow-y-auto text-sm mono leading-relaxed">
+                    <div class="text-slate-500">// Agent ready. Click "Run Assessment" to begin.</div>
+                    <div class="text-slate-500">// The agent will execute the Five-Point Protocol autonomously.</div>
+                    <div class="text-slate-600 mt-2">
+                        <span class="text-indigo-400">persona:</span> Cybersecurity Expert (OWASP, NIS2, ISO 27001)<br>
+                        <span class="text-indigo-400">protocol:</span> Five-Point Prompt Verification<br>
+                        <span class="text-indigo-400">scanners:</span> HeaderScanner, SecretScanner, CSPAnalyzer, RLSTester, IntegrationAuditor<br>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Panel (hidden until assessment runs) -->
+        <section id="resultsPanel" class="mb-10 hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Assessment Report</h2>
+            <div id="resultsContent" class="space-y-4"></div>
+        </section>
+
+        <!-- Why This Matters for Enterprise -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Why This Matters</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg border border-slate-200 p-5">
+                    <h3 class="font-bold text-sm text-slate-900 mb-2">NIS2 Compliance</h3>
+                    <p class="text-sm text-slate-600">The EU NIS2 Directive (effective October 2024) requires "appropriate and proportionate technical measures" for cybersecurity. AI-assisted assessments with structured protocols provide the auditability NIS2 demands - every finding traced to a specific check, every scope decision documented.</p>
+                </div>
+                <div class="bg-white rounded-lg border border-slate-200 p-5">
+                    <h3 class="font-bold text-sm text-slate-900 mb-2">Hallucination Prevention</h3>
+                    <p class="text-sm text-slate-600">Without the Five-Point Protocol, AI agents hallucinate vulnerabilities ("SQL injection" on a PostgREST API), drift into out-of-scope systems, or skip systematic coverage. The protocol's Scope Validation and Verification steps eliminate these failure modes - critical for enterprise trust.</p>
+                </div>
+                <div class="bg-white rounded-lg border border-slate-200 p-5">
+                    <h3 class="font-bold text-sm text-slate-900 mb-2">Persona Engineering</h3>
+                    <p class="text-sm text-slate-600">The cybersecurity expert persona isn't cosmetic - it constrains the agent's behavior: "think like an attacker, report like a consultant." It defines knowledge areas (OWASP, NIS2), interaction style (evidence-based, no hedging), and severity classification rules. This is how you make AI agents reliable for enterprise use.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Standards Reference -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Cybersecurity Standards Reference</h2>
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <table class="w-full text-sm">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th class="text-left p-3 font-medium text-slate-700">Standard</th>
+                            <th class="text-left p-3 font-medium text-slate-700">Scope</th>
+                            <th class="text-left p-3 font-medium text-slate-700">Relevance to AI Agents</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr><td class="p-3 font-medium">OWASP Top 10</td><td class="p-3 text-slate-600">Web application vulnerabilities</td><td class="p-3 text-slate-600">Primary scanning framework - 10 categories mapped to automated checks</td></tr>
+                        <tr><td class="p-3 font-medium">EU NIS2 Directive</td><td class="p-3 text-slate-600">Network and information security</td><td class="p-3 text-slate-600">Requires documented risk assessments - agent provides audit trail</td></tr>
+                        <tr><td class="p-3 font-medium">ISO 27001</td><td class="p-3 text-slate-600">Information security management</td><td class="p-3 text-slate-600">Annex A controls map to scanner checks (A.8 asset mgmt, A.14 system security)</td></tr>
+                        <tr><td class="p-3 font-medium">OWASP ASVS</td><td class="p-3 text-slate-600">Application security verification</td><td class="p-3 text-slate-600">Detailed verification requirements per security level (L1/L2/L3)</td></tr>
+                        <tr><td class="p-3 font-medium">GDPR Art. 32</td><td class="p-3 text-slate-600">Security of processing</td><td class="p-3 text-slate-600">"Appropriate technical measures" - CSP, encryption, access control checks</td></tr>
+                        <tr><td class="p-3 font-medium">SOC 2 Type II</td><td class="p-3 text-slate-600">Service organization controls</td><td class="p-3 text-slate-600">Continuous monitoring - agent can be scheduled for recurring assessments</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Course Context -->
+        <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 mb-10">
+            <h3 class="font-bold text-indigo-900 mb-2">Course Context: Advanced Techniques + Autonomous Systems</h3>
+            <p class="text-sm text-indigo-800 leading-relaxed">
+                This demo is part of <strong>Part 6: Infrastructure Evolution</strong> (Chapters 11-12) in "From Blueprint to Application." It demonstrates the convergence of three advanced concepts: <strong>persona engineering</strong> (constraining AI behavior for domain expertise), <strong>structured protocols</strong> (the Five-Point System for reliable execution), and <strong>agentic architecture</strong> (autonomous tools that act, observe, and verify). In enterprise settings, this pattern - persona + protocol + tools - is how organizations build AI systems that are trustworthy enough for security-critical work.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 mt-8">
+        <div class="max-w-5xl mx-auto px-4 py-6 text-center text-sm text-slate-500">
+            From Blueprint to Application - Fredrik Bratten - <a href="https://adaptivearts.ai" class="text-indigo-600 hover:underline">Adaptivearts.ai</a>
+        </div>
+    </footer>
+
+    <script>
+    const SCAN_STEPS = [
+        { phase: '1', label: 'CLARIFICATION', color: 'indigo', lines: [
+            { type: 'agent', text: 'Loading persona: Cybersecurity Expert (OWASP + NIS2 + ISO 27001)' },
+            { type: 'agent', text: 'Target confirmed. Initiating Five-Point Protocol.' },
+            { type: 'info', text: 'Task: Comprehensive security assessment following OWASP Top 10 framework.' },
+        ]},
+        { phase: '2', label: 'SCOPE VALIDATION', color: 'blue', lines: [
+            { type: 'scope', text: 'IN SCOPE: HTTP headers, CSP, client-side JS, auth flows, API security, integration security' },
+            { type: 'scope', text: 'OUT OF SCOPE: Platform internal security (Netlify/Supabase/GitHub infrastructure)' },
+            { type: 'scope', text: 'FRAMEWORK: OWASP Top 10 (2021) + NIS2 Art. 21 risk management measures' },
+        ]},
+        { phase: '3', label: 'REASONING PLAN', color: 'purple', lines: [
+            { type: 'plan', text: 'Step 1: HTTP security headers scan (HSTS, CSP, X-Frame, X-Content-Type)' },
+            { type: 'plan', text: 'Step 2: Sensitive file exposure test (.env, .git, package.json)' },
+            { type: 'plan', text: 'Step 3: Client-side secret audit (API keys, tokens, source maps)' },
+            { type: 'plan', text: 'Step 4: CSP effectiveness analysis (directives, wildcards, bypasses)' },
+            { type: 'plan', text: 'Step 5: Authentication & authorization flow testing' },
+            { type: 'plan', text: 'Step 6: Database RLS penetration test (anon key)' },
+            { type: 'plan', text: 'Step 7: API/Edge Function security (rate limiting, injection)' },
+            { type: 'plan', text: 'Step 8: Integration security audit (CI/CD, secrets, tokens)' },
+            { type: 'plan', text: 'Step 9: OWASP Top 10 mapping and report generation' },
+        ]},
+        { phase: '4', label: 'EXECUTION', color: 'green', lines: [
+            { type: 'scan', text: 'Scanning HTTP headers...' },
+            { type: 'pass', text: 'HSTS: max-age=31536000; includeSubDomains; preload' },
+            { type: 'pass', text: 'X-Frame-Options: DENY' },
+            { type: 'pass', text: 'X-Content-Type-Options: nosniff' },
+            { type: 'pass', text: 'Referrer-Policy: strict-origin-when-cross-origin' },
+            { type: 'warn', text: 'CSP: script-src includes unsafe-inline (required by framework)' },
+            { type: 'scan', text: 'Testing sensitive file exposure...' },
+            { type: 'pass', text: '.env -> 404 | .git/config -> 404 | package.json -> 404 | CLAUDE.md -> 404' },
+            { type: 'scan', text: 'Auditing client-side JavaScript bundles...' },
+            { type: 'pass', text: 'No API keys found in HTML (0 pages)' },
+            { type: 'pass', text: 'No source maps exposed' },
+            { type: 'pass', text: 'No Supabase service_role key in bundles' },
+            { type: 'scan', text: 'Analyzing CSP directives...' },
+            { type: 'warn', text: 'connect-src uses wildcard https://*.supabase.co - data exfiltration risk' },
+            { type: 'warn', text: 'Missing base-uri directive - allows base tag injection' },
+            { type: 'warn', text: 'Missing form-action directive - allows form submission to external URLs' },
+            { type: 'scan', text: 'Testing Supabase RLS policies (anon key)...' },
+            { type: 'pass', text: 'Anon can read published articles: YES (expected)' },
+            { type: 'pass', text: 'Anon can read draft articles: NO (blocked by RLS)' },
+            { type: 'pass', text: 'Anon can INSERT articles: NO (RLS violation)' },
+            { type: 'pass', text: 'Anon can read user_roles: NO (empty result)' },
+            { type: 'scan', text: 'Testing Edge Function security...' },
+            { type: 'pass', text: 'gemini-proxy: requires authentication (401 without JWT)' },
+            { type: 'pass', text: 'contact-form: rate limiting active (3/IP per 30min)' },
+            { type: 'pass', text: 'contact-form: prompt injection detected and blocked' },
+            { type: 'scan', text: 'Auditing CI/CD integration...' },
+            { type: 'fail', text: 'GitHub: No branch protection on main branch!' },
+            { type: 'pass', text: 'GitHub: Secrets properly configured (7 secrets)' },
+            { type: 'pass', text: 'Netlify: Auto-builds disabled (CLI deploy only)' },
+        ]},
+        { phase: '5', label: 'VERIFICATION', color: 'amber', lines: [
+            { type: 'verify', text: 'Self-audit: 9/9 planned checks executed. No untested areas.' },
+            { type: 'verify', text: 'OWASP mapping: 10/10 categories assessed.' },
+            { type: 'verify', text: 'Confidence: 85% (cannot verify RLS exhaustively without service_role key)' },
+            { type: 'result', text: 'FINDINGS: 1 HIGH, 5 MEDIUM, 4 LOW, 2 INFO' },
+            { type: 'result', text: 'Assessment complete. Report generated.' },
+        ]},
+    ];
+
+    const TYPE_COLORS = {
+        agent: 'text-cyan-400',
+        info: 'text-slate-400',
+        scope: 'text-blue-400',
+        plan: 'text-purple-400',
+        scan: 'text-yellow-400',
+        pass: 'text-green-400',
+        warn: 'text-amber-400',
+        fail: 'text-red-400',
+        verify: 'text-indigo-400',
+        result: 'text-white font-bold',
+    };
+
+    const TYPE_PREFIXES = {
+        agent: '[AGENT]',
+        info: '[INFO]',
+        scope: '[SCOPE]',
+        plan: '[PLAN]',
+        scan: '[SCAN]',
+        pass: '[PASS]',
+        warn: '[WARN]',
+        fail: '[FAIL]',
+        verify: '[VERIFY]',
+        result: '[RESULT]',
+    };
+
+    let isRunning = false;
+
+    async function runAssessment() {
+        if (isRunning) return;
+        isRunning = true;
+
+        const consoleEl = document.getElementById('console');
+        const statusEl = document.getElementById('agentStatus');
+        const btn = document.getElementById('runBtn');
+        const target = document.getElementById('targetUrl').value;
+
+        btn.disabled = true;
+        btn.classList.add('opacity-50');
+        consoleEl.innerHTML = '';
+
+        for (const step of SCAN_STEPS) {
+            // Phase header
+            statusEl.innerHTML = `<span class="w-2 h-2 bg-green-400 rounded-full agent-pulse"></span> Phase ${step.phase}: ${step.label}`;
+            const header = document.createElement('div');
+            header.className = `text-${step.color}-400 font-bold mt-4 mb-1`;
+            header.textContent = `--- STEP ${step.phase}: ${step.label} ---`;
+            consoleEl.appendChild(header);
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+            await sleep(400);
+
+            for (const line of step.lines) {
+                const el = document.createElement('div');
+                const prefix = TYPE_PREFIXES[line.type] || '';
+                const colorClass = TYPE_COLORS[line.type] || 'text-slate-400';
+                el.className = `${colorClass} fade-in`;
+                el.innerHTML = `<span class="text-slate-600">${new Date().toLocaleTimeString()}</span> ${prefix} ${escapeHtml(line.text.replace('TARGET', target))}`;
+                consoleEl.appendChild(el);
+                consoleEl.scrollTop = consoleEl.scrollHeight;
+                await sleep(line.type === 'scan' ? 600 : line.type === 'fail' ? 800 : 250);
+            }
+        }
+
+        // Show results
+        statusEl.innerHTML = '<span class="w-2 h-2 bg-green-400 rounded-full"></span> <span class="text-green-400">Complete</span>';
+        showResults();
+        btn.disabled = false;
+        btn.classList.remove('opacity-50');
+        isRunning = false;
+    }
+
+    function showResults() {
+        const panel = document.getElementById('resultsPanel');
+        const content = document.getElementById('resultsContent');
+        panel.classList.remove('hidden');
+
+        content.innerHTML = `
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+            <div class="bg-red-50 px-4 py-3 border-b border-red-100">
+                <h3 class="font-bold text-red-900">OWASP Top 10 Assessment Results</h3>
+            </div>
+            <table class="w-full text-sm">
+                <thead class="bg-slate-50"><tr>
+                    <th class="text-left p-2 font-medium">#</th>
+                    <th class="text-left p-2 font-medium">Category</th>
+                    <th class="text-left p-2 font-medium">Risk</th>
+                    <th class="text-left p-2 font-medium">Status</th>
+                </tr></thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr><td class="p-2">A01</td><td class="p-2">Broken Access Control</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">LOW</span></td><td class="p-2 text-green-600">PASS</td></tr>
+                    <tr><td class="p-2">A02</td><td class="p-2">Cryptographic Failures</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">LOW</span></td><td class="p-2 text-green-600">PASS</td></tr>
+                    <tr><td class="p-2">A03</td><td class="p-2">Injection</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">LOW</span></td><td class="p-2 text-green-600">PASS</td></tr>
+                    <tr><td class="p-2">A04</td><td class="p-2">Insecure Design</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">LOW</span></td><td class="p-2 text-green-600">PASS</td></tr>
+                    <tr class="bg-amber-50"><td class="p-2">A05</td><td class="p-2">Security Misconfiguration</td><td class="p-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs">MEDIUM</span></td><td class="p-2 text-amber-600">ISSUES</td></tr>
+                    <tr><td class="p-2">A06</td><td class="p-2">Vulnerable Components</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">LOW</span></td><td class="p-2 text-green-600">PASS</td></tr>
+                    <tr><td class="p-2">A07</td><td class="p-2">Auth Failures</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">LOW</span></td><td class="p-2 text-green-600">PASS</td></tr>
+                    <tr class="bg-amber-50"><td class="p-2">A08</td><td class="p-2">Data Integrity</td><td class="p-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs">MEDIUM</span></td><td class="p-2 text-amber-600">ISSUE</td></tr>
+                    <tr><td class="p-2">A09</td><td class="p-2">Logging & Monitoring</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">LOW</span></td><td class="p-2 text-green-600">PASS</td></tr>
+                    <tr><td class="p-2">A10</td><td class="p-2">SSRF</td><td class="p-2"><span class="bg-slate-100 text-slate-500 px-2 py-0.5 rounded text-xs">N/A</span></td><td class="p-2 text-slate-400">Static site</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+            <h3 class="font-bold text-sm mb-3">Priority Actions</h3>
+            <div class="space-y-2 text-sm">
+                <div class="flex items-start gap-2"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">HIGH</span><span>Enable GitHub branch protection on main (require PR reviews)</span></div>
+                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Tighten CSP connect-src wildcard to specific Supabase project</span></div>
+                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Add base-uri and form-action CSP directives</span></div>
+                <div class="flex items-start gap-2"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-bold flex-shrink-0">MED</span><span>Implement persistent rate limiting (Supabase table vs in-memory)</span></div>
+            </div>
+            <div class="mt-4 text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                <strong>NIS2 Compliance Note:</strong> Article 21(2)(a) requires "policies on risk analysis and information system security." This assessment report, with its structured protocol and OWASP mapping, serves as evidence of systematic risk analysis. Store in your ISMS documentation.
+            </div>
+        </div>`;
+
+        panel.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+    function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    </script>
+</body>
+</html>
