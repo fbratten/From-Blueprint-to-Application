@@ -1,0 +1,169 @@
+{
+  "mcpServers": {
+    "paaf": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/paaf/paaf-mcp-server && /mnt/d/temp/myprojects/paaf/paaf-mcp-server/.venv/bin/python paaf_mcp.py"
+      ],
+      "env": {
+        "PAAF_PORTFOLIO_PATH": "/mnt/d/temp/myprojects/paaf"
+      }
+    },
+    "research-agent-mcp": {
+      "command": "node",
+      "args": [
+        "/mnt/d/temp/myprojects/research-agent-mcps/mcp/research-agent-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "RESEARCH_STORAGE_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/data",
+        "RESEARCH_CACHE_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/cache",
+        "RESEARCH_LOG_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/logs",
+        "USE_REAL_APIS": "true"
+      }
+    },
+    "research-notes-mcp": {
+      "command": "node",
+      "args": [
+        "/mnt/d/temp/myprojects/research-agent-mcps/mcp/research-notes-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "RESEARCH_STORAGE_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/data",
+        "RESEARCH_CACHE_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/cache",
+        "RESEARCH_LOG_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/logs"
+      }
+    },
+    "research-log-mcp": {
+      "command": "node",
+      "args": [
+        "/mnt/d/temp/myprojects/research-agent-mcps/mcp/research-log-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "RESEARCH_STORAGE_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/data",
+        "RESEARCH_CACHE_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/cache",
+        "RESEARCH_LOG_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/logs"
+      }
+    },
+    "evaluation-mcp": {
+      "command": "node",
+      "args": [
+        "/mnt/d/temp/myprojects/research-agent-mcps/mcp/evaluation-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "RESEARCH_STORAGE_PATH": "/mnt/d/temp/myprojects/research-agent-mcps/data"
+      }
+    },
+    "smart-inventory": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/mcp-servers/smart-project-inventory-system && /mnt/d/mcp-servers/smart-project-inventory-system/venv/bin/python -m smart_inventory.main"
+      ]
+    },
+    "next-conductor": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/mcp-servers/next-conductor && /mnt/d/mcp-servers/next-conductor/venv/bin/python -m next_conductor.main"
+      ]
+    },
+    "browser-mcp": {
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "set BROWSER_HEADLESS=false && set BROWSER_CDP_URL=http://localhost:9222 && C:\\Miniconda3\\python.exe D:\\temp\\myprojects\\job-matcher-application\\multi-ai-workspace\\mcp-servers\\browser-mcp\\server.py"
+      ]
+    },
+    "content-extractor-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/content-extractor-mcp && .venv/bin/python -m src.content_extractor_mcp.server"
+      ],
+      "env": {
+        "TESSERACT_CMD": "tesseract",
+        "OCR_LANG": "eng",
+        "MAX_REGIONS": "12"
+      }
+    },
+    "minna-memory": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/mem-system-lite-mcp && .venv/bin/python -m mem_system_lite.server"
+      ],
+      "env": {
+        "MINNA_DB_PATH": "/mnt/d/temp/myprojects/From-Blueprint-to-Application-Showcase/.spine/minna.db"
+      }
+    },
+    "mcp-builder-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/GENERAL-AI-SCRATCHPAD/ideas-experiment-workspace && .venv/bin/python -m mcp_builder_mcp.server"
+      ]
+    },
+    "mcp-server-checker": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/mcp-server-checker && .venv/bin/python -m mcp_server_checker.server"
+      ]
+    },
+    "session-handover-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/session-handover-mcp && .venv/bin/python -m session_handover_generator_mcp.server"
+      ]
+    },
+    "manual-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/manual-mcp && .venv/bin/python -m manual_mcp.server"
+      ]
+    },
+    "showcase-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/showcase-mcp && .venv/bin/python -m mcp_showcase.server"
+      ]
+    },
+    "content-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/content-mcp && .venv/bin/python -m content_mcp.server"
+      ]
+    },
+    "8do-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/8do-mcp && .venv/bin/python -m eight_do_mcp.server"
+      ]
+    },
+    "context-glue-mcp": {
+      "command": "node",
+      "args": [
+        "/mnt/d/temp/myprojects/context-glue-mcp/src/server.js"
+      ]
+    },
+    "the-musicologist-mcp": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/the-musicologist-mcp && .venv/bin/python -m the_musicologist_mcp.server"
+      ]
+    },
+    "mcp-router": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd /mnt/d/temp/myprojects/mcp-router && .venv/bin/python -m src.server"
+      ]
+    }
+  }
+}
