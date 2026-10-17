@@ -16,6 +16,10 @@
 *Svenska:* **mutationsankare** - En exakt plats i koden där ett mutationstest gör sin avsiktliga ändring. Om platsen inte hittas entydigt ska kontrollen slå larm, inte bli grön.
 <a id="term-api"></a>**API (Application Programming Interface)** - The interface through which applications communicate with AI models.
 
+
+<a id="term-artifact"></a>**Artifact (GitHub Actions)** - A file or package saved by a workflow run, for example a screenshot collection or a review preview. Artifacts have retention limits and are not proof that the underlying test passed.
+
+*Svenska:* **En fil eller samling filer som sparas från ett CI-jobb, till exempel skärmbilder eller en testrapport. Artifakter kan upphöra att vara tillgängliga och visar inte i sig att testet lyckades.**
 <a id="term-assertion"></a>**Assertion** - A statement in a test that must be true for the test to pass, e.g. "the score is a number between 0 and 1". An assertion written in a document or diagram is a requirement, not proof that anything was tested.
 
 *Svenska:* **påstående (i ett test)** – En regel i ett test som måste stämma för att testet ska bli godkänt, t.ex. "poängen är ett tal mellan 0 och 1". Ett påstående som bara står i ett dokument eller en ritning är ett krav, inte ett bevis på att något har testats.
@@ -46,6 +50,10 @@
 *Svenska:* **fångad mutation** - En avsiktlig försämring fick rätt test att fallera, medan originalkoden passerade. Det visar att testet reagerar på just den förändringen.
 <a id="term-chain-of-thought"></a>**Chain-of-Thought (CoT)** - A prompting technique that encourages the AI to show its reasoning process step by step.
 
+
+<a id="term-checkout"></a>**Checkout (GitHub Actions)** - Fetching an exact repository revision into a runner so the job executes or tests the intended source files. In an Actions workflow, actions/checkout is a reusable action that performs the checkout.
+
+*Svenska:* **Att hämta en bestämd kodversion till den dator som kör testerna. actions/checkout är ett färdigt GitHub Actions-steg som gör detta.**
 <a id="term-chunking"></a>**Chunking** - Splitting documents into smaller pieces ("chunks") before they are indexed for search in a RAG system. Poor chunking can cut sentences apart or separate a fact from its context.
 
 *Svenska:* **uppdelning i textbitar** – Dokument delas upp i mindre stycken innan de läggs in för sökning i ett RAG-system. Delas texten fel kan en mening klippas av eller ett faktum hamna skilt från sitt sammanhang.
@@ -96,6 +104,10 @@
 
 *Svenska:* **skydd i flera lager** – Flera oberoende skyddslager används, så att ett senare lager kan fånga det som ett tidigare missade. Inget enskilt lager antas vara perfekt.
 
+
+<a id="term-deployment"></a>**Deployment** - Publishing a built application or website to a hosting environment. Deployment and passing CI checks are separate outcomes; after deployment, the public service can be tested again.
+
+*Svenska:* **Att publicera en byggd applikation eller webbplats i en miljö där den ska användas. En grön testkörning och en lyckad publicering är två olika resultat som bör verifieras var för sig.**
 <a id="term-deterministic-test"></a>**Deterministic Test** - A test that gives the same result every time for the same input, such as a format or permission check. Deterministic tests are fast and cheap, unlike sampled AI evaluations whose results can vary.
 
 *Svenska:* **deterministiskt test** – Ger alltid samma resultat för samma indata, t.ex. en kontroll av format eller behörigheter. Sådana tester är snabba och billiga, till skillnad från stickprovsbaserade AI-utvärderingar där resultaten kan variera.
@@ -146,6 +158,10 @@
 <a id="term-github-actions"></a>**GitHub Actions** - GitHub's automation service that executes configured workflows when events such as a push occur. Test jobs run on runners and report their results against a specific commit.
 
 *Svenska:* **GitHub Actions** - GitHubs tjänst för automatisering. När exempelvis en push görs kan den starta definierade testjobb och redovisa resultat för en bestämd commit.
+
+<a id="term-github-pages"></a>**GitHub Pages** - GitHub's static website hosting service. A workflow can build a site, deploy it to GitHub Pages and run browser checks against the public URL.
+
+*Svenska:* **GitHubs tjänst för att publicera statiska webbplatser. Ett workflow kan bygga sidorna, publicera dem och därefter testa den publika webbadressen.**
 <a id="term-golden-dataset"></a>**Golden Dataset** - A versioned collection of example inputs with expected or approved answers, used to check whether a change to a prompt, model or retrieval step made results worse. A small set cannot cover every real-world case.
 
 *Svenska:* **referensdataset, facit** – En versionshanterad samling exempelfrågor med förväntade eller godkända svar. Används för att se om en ändring av prompt, modell eller sökning har försämrat resultaten. En liten samling täcker aldrig alla verkliga fall.
@@ -250,6 +266,10 @@
 <a id="term-pipeline"></a>**Pipeline** - An ordered or parallel sequence of automated build, test, evaluation and release tasks. A green pipeline reports the checks it ran, not universal correctness.
 
 *Svenska:* **automatiserat arbetsflöde** - En följd av automatiska moment för byggning, test och eventuell leverans. Ett grönt flöde bevisar bara de kontroller som faktiskt ingick.
+
+<a id="term-playwright"></a>**Playwright** - A browser automation and testing toolkit. A test can open an actual Chromium-based browser, navigate pages, click controls, inspect visible elements and check mobile layout.
+
+*Svenska:* **Ett verktyg för att styra webbläsare automatiskt vid tester. Det kan öppna sidor, klicka, kontrollera menyer och verifiera hur en webbplats ser ut på mobil.**
 <a id="term-prompt"></a>**Prompt** - The input text or instructions given to an AI model.
 
 <a id="term-prompt-engineering"></a>**Prompt Engineering** - The systematic practice of designing, optimizing, and refining prompts to achieve desired AI outputs.
@@ -300,6 +320,10 @@
 
 *Svenska:* **återställning** - Att gå tillbaka till ett tidigare fungerande tillstånd efter ett misslyckande. Om en inkommande uppdatering inte kan ritas ska den tidigare arbetsytan finnas kvar.
 
+
+<a id="term-run-trigger"></a>**Run Trigger (GitHub Actions)** - The event or manual request that starts a workflow run. push, pull_request and workflow_dispatch may select different conditional steps inside the same workflow.
+
+*Svenska:* **Den händelse som startar ett workflow. Exempel är en push, en pull request eller manuell start. Samma workflow kan då välja olika steg.**
 <a id="term-runner"></a>**Runner (GitHub Actions)** - The computer or temporary virtual environment that executes a CI job. Using a fresh runner helps show that tests also work outside the developer's own machine.
 
 *Svenska:* **testkörningsmiljö** - Den dator eller tillfälliga virtuella miljö som utför ett CI-jobb. En ren runner hjälper till att upptäcka beroenden till utvecklarens egen dator.
@@ -390,9 +414,23 @@
 
 *Svenska:* **arbetsflöde** - En beskriven följd av uppgifter. I GitHub Actions är det en YAML-fil med jobb och steg; i Tachylite kan ordet också betyda den graf med noder som användaren redigerar.
 
+
+<a id="term-workflow-dispatch"></a>**Workflow Dispatch** - A GitHub Actions event that lets an authorized person or automation start a workflow explicitly rather than waiting for a push or pull request.
+
+*Svenska:* **Ett sätt att uttryckligen starta ett GitHub Actions-workflow, manuellt eller genom ett godkänt anrop, utan att vänta på en ny kodändring.**
+
+<a id="term-workflow-run"></a>**Workflow Run** - One particular execution of a configured workflow. Each run has its own run ID, event, commit SHA, outcome, jobs and logs; it differs from the reusable workflow definition.
+
+*Svenska:* **En bestämd körning av ett workflow. Varje körning har ett eget körnings-ID, en kodversion, en starthändelse, jobb, loggar och resultat. Själva workflow-filen är receptet, inte en körning.**
 <a id="term-worktree"></a>**Worktree (Git)** - A separate checkout directory belonging to an existing Git repository. It lets different branches be worked on in isolated folders without overwriting each other's uncommitted files.
 
 *Svenska:* **separat arbetsmapp i Git** - En extra utcheckad projektmapp knuten till samma Git-repo. Den isolerar arbetet med en branch så andra arbetsmappars osparade ändringar inte påverkas.
+
+## Y
+
+<a id="term-yaml"></a>**YAML** - A human-readable configuration format. GitHub Actions workflows are stored as YAML files in .github/workflows and declare event triggers, job permissions, steps and conditions.
+
+*Svenska:* **Ett textformat för inställningar. GitHub Actions använder YAML-filer under .github/workflows för att beskriva när kontroller körs, vilka jobb som ingår och vad de ska göra.**
 
 ## Z
 
