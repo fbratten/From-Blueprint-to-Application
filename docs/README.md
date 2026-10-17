@@ -29,5 +29,5 @@
 ## Quick Links
 
 - [Interactive Demos](../demos/)
-- [Pre-Order the Book](https://subscribepage.io/from-blueprint-to-application)
+- [Explore the Book](https://adaptivearts.ai/book/)
 - [Back to Showcase](../)

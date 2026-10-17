@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](#license)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue.svg)](https://fbratten.github.io/From-Blueprint-to-Application)
-[![Status](https://img.shields.io/badge/Status-Pre--Release-orange.svg)](https://subscribepage.io/from-blueprint-to-application)
+[![Status](https://img.shields.io/badge/Status-Pre--Release-orange.svg)](https://adaptivearts.ai/book/)
 
 ---
 
@@ -166,13 +166,11 @@ Week 9-12: OPTIMIZATION
 
 ---
 
-## Pre-Release Offer
+## Book and project
 
-Get early access at **40% off** the regular price.
+[Explore the book on Adaptivearts.ai](https://adaptivearts.ai/book/)
 
-**Early Access: 249 SEK** (Regular: 399 SEK)
-
-[→ Reserve Your Copy](https://subscribepage.io/from-blueprint-to-application)
+[Blueprint AI Studio](https://blueprintaistudio.app/) is the companion studio and LMS project. The studio site is currently coming soon.
 
 ---
 

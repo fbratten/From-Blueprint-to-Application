@@ -112,7 +112,7 @@ Format your response as:
 
 > **Note:** These are simplified templates. The full book includes 50+ production-ready templates with detailed usage guides and variations.
 
-[Get the Complete Template Library →](https://subscribepage.io/from-blueprint-to-application)
+[Explore the Book and Resources →](https://adaptivearts.ai/book/)
 
 ---
 

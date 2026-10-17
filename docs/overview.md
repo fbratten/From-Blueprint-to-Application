@@ -67,4 +67,4 @@ Read Chapter 4 (Security), Chapter 9 (Implementation), and Part VI (Infrastructu
 
 ---
 
-[← Back to Docs](README.md) | [Get the Book →](https://subscribepage.io/from-blueprint-to-application)
+[← Back to Docs](README.md) | [Get the Book →](https://adaptivearts.ai/book/)

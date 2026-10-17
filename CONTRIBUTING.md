@@ -22,7 +22,7 @@ If you've found a bug in one of the interactive demos or have feedback about the
 
 For questions about the book content, pre-release access, or bulk licensing:
 
-- Visit the [pre-release page](https://subscribepage.io/from-blueprint-to-application)
+- Visit the [book overview](https://adaptivearts.ai/book/)
 - Contact the author via GitHub
 
 ---
