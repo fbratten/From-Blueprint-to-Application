@@ -206,6 +206,10 @@
 
 <a id="term-mcp"></a>**MCP (Model Context Protocol)** - A standardized protocol for connecting AI models to external tools and data sources.
 
+<a id="term-merge"></a>**Merge (Git)** - Integrating changes from one branch into another after review and checks. A merge changes the target branch; it is different from merely pushing commits to a review branch.
+
+*Svenska:* **sammanfogning av utvecklingsgrenar** - Ändringar från en branch förs in i en annan efter kontroller och granskning. En merge påverkar målgrenen, till skillnad från en vanlig push.
+
 <a id="term-mock"></a>**Mock** - A simplified stand-in for a real component, such as a fake database or API, used in tests. Mocks make tests fast but can hide real integration problems.
 
 *Svenska:* **låtsaskomponent, attrapp** – En förenklad ersättare för en riktig del, t.ex. en låtsasdatabas eller ett låtsas-API, som används i tester. Gör testerna snabba men kan dölja verkliga problem i samspelet mellan delarna.
