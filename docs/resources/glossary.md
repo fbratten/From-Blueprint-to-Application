@@ -10,6 +10,10 @@
 
 <a id="term-agent"></a>**Agent** - An AI system that can take actions autonomously, make decisions, and work toward goals without constant human direction.
 
+
+<a id="term-anchor"></a>**Anchor (Mutation Anchor)** - An exact piece of source code a mutation tool locates before deliberately changing a safety control. If the anchor moves or matches ambiguously, the gate must not silently report success.
+
+*Svenska:* **mutationsankare** - En exakt plats i koden där ett mutationstest gör sin avsiktliga ändring. Om platsen inte hittas entydigt ska kontrollen slå larm, inte bli grön.
 <a id="term-api"></a>**API (Application Programming Interface)** - The interface through which applications communicate with AI models.
 
 <a id="term-assertion"></a>**Assertion** - A statement in a test that must be true for the test to pass, e.g. "the score is a number between 0 and 1". An assertion written in a document or diagram is a requirement, not proof that anything was tested.
@@ -22,8 +26,24 @@
 
 *Svenska:* **bakåtkompatibilitet** – En ny version av ett API eller dataformat fungerar fortfarande för program som byggts för den gamla versionen. Kontrollerna fångar ändringar som annars skulle få befintliga system att sluta fungera.
 
+<a id="term-baseline"></a>**Baseline (Control-Present Run)** - The reference test run with the original control intact. A mutation result is meaningful only when the named tests actually run and pass on this baseline.
+
+*Svenska:* **referenskörning** - Testkörningen med originalskyddet kvar. Testerna måste verkligen köras och lyckas här innan man kan tolka resultatet efter att skyddet saboterats.
+
+<a id="term-branch"></a>**Branch** - An independent line of commits in Git. Work can be reviewed and tested on a branch without immediately changing the default integration branch such as main.
+
+*Svenska:* **utvecklingsgren** - En egen utvecklingslinje med commits. Ändringar kan granskas och testas där utan att de omedelbart påverkar huvudgrenen main.
+
+<a id="term-broken-mutation"></a>**BROKEN (Mutation Outcome)** - A mutation check whose result cannot be trusted: a test did not run on the baseline, setup failed, the source edit missed its anchor, or the mutant did not change the code. BROKEN is not a detected defect.
+
+*Svenska:* **trasig mutationskontroll** - Kontrollen kunde inte ge ett tillförlitligt svar. Exempelvis kördes inte testet, testmiljön fallerade eller kodändringen träffade fel. Får inte räknas som en fångad mutation.
+
 ## C
 
+
+<a id="term-caught-mutation"></a>**CAUGHT (Mutation Outcome)** - A deliberate defect was introduced, and the corresponding test failed in its test body while the baseline passed. This is evidence that the test detects that particular sabotage.
+
+*Svenska:* **fångad mutation** - En avsiktlig försämring fick rätt test att fallera, medan originalkoden passerade. Det visar att testet reagerar på just den förändringen.
 <a id="term-chain-of-thought"></a>**Chain-of-Thought (CoT)** - A prompting technique that encourages the AI to show its reasoning process step by step.
 
 <a id="term-chunking"></a>**Chunking** - Splitting documents into smaller pieces ("chunks") before they are indexed for search in a RAG system. Poor chunking can cut sentences apart or separate a fact from its context.
@@ -34,14 +54,30 @@
 
 *Svenska:* **kontinuerlig integration och leverans** – Automatiska flöden som bygger och testar varje kodändring (CI) och förbereder eller släpper godkända ändringar (CD). I AI-projekt kan samma flöde även köra utvärderingar av modellens svar.
 
+
+<a id="term-ci-job"></a>**CI Job** - One independently executed part of a CI workflow, such as unit tests, browser smoke checks or the mutation gate. A job contains one or more steps.
+
+*Svenska:* **CI-jobb** - En separat kontrolluppgift i GitHub Actions, exempelvis vanliga tester eller Mutation Gate. Ett jobb består av flera arbetsmoment.
+
+<a id="term-ci-step"></a>**CI Step** - A single action inside a CI job, such as checking out code, installing Python, installing a browser or running pytest.
+
+*Svenska:* **CI-steg** - Ett enskilt moment i ett CI-jobb, exempelvis att hämta koden, installera Python eller köra ett testprogram.
 <a id="term-circuit-breaker"></a>**Circuit Breaker** - A safety mechanism that stops a process when something keeps failing or repeating, for example an agent calling the same tool over and over. It stops the loop but does not fix the underlying cause.
 
 *Svenska:* **kretsbrytare, nödstopp** – Ett skydd som stoppar en process när något upprepade gånger misslyckas eller går i loop, t.ex. en agent som anropar samma verktyg om och om igen. Det stoppar loopen men löser inte grundorsaken.
 
+
+<a id="term-code-review"></a>**Code Review** - A review of proposed changes by another developer or reviewer. It can catch design defects, misleading assumptions and untested paths that an automated pipeline does not cover.
+
+*Svenska:* **kodgranskning** - En annan utvecklare eller granskare bedömer föreslagna kodändringar. Det kan upptäcka felaktiga antaganden och testluckor som automatiska kontroller missar.
 <a id="term-commit"></a>**Commit** - A saved, labelled snapshot of changes in a version control system such as Git. In CI, each commit can trigger a set of fast automated tests.
 
 *Svenska:* **incheckning** – En sparad och märkt ögonblicksbild av ändringar i ett versionshanteringssystem som Git. I CI kan varje commit starta en uppsättning snabba automatiska tester.
 
+
+<a id="term-commit-hash"></a>**Commit Hash (SHA)** - A long identifier for one exact Git commit. Using the full hash ties a review or test result to a precise revision rather than to a branch that may later move.
+
+*Svenska:* **commit-hash eller SHA** - Ett långt ID för en exakt sparad kodversion. Det gör det möjligt att knyta tester och granskningar till rätt version även om en branch senare förändras.
 <a id="term-context-window"></a>**Context Window** - The maximum amount of text (measured in tokens) that an AI model can process in a single interaction.
 
 <a id="term-context-engineering"></a>**Context Engineering** - The practice of designing and managing the information provided to AI systems to optimize their outputs.
@@ -49,6 +85,10 @@
 <a id="term-contract-test"></a>**Contract Test** - A test that checks that data exchanged between systems has the agreed shape: required fields, correct types and valid values. A valid shape says nothing about whether the content is true.
 
 *Svenska:* **kontraktstest** – Kontrollerar att data som skickas mellan system har den överenskomna formen: rätt fält, rätt datatyper och giltiga värden. Rätt form säger inget om att innehållet är sant.
+
+<a id="term-xss"></a>**Cross-Site Scripting (XSS)** - A browser security weakness in which untrusted text is interpreted as executable script, often after unsafe insertion into HTML. Escaping, validation and safe DOM APIs limit the risk.
+
+*Svenska:* **skriptinjektion i webbläsaren** - En säkerhetsbrist där opålitlig text blir körbar webbkod, till exempel genom felaktig HTML-hantering. Korrekt escaping och säker DOM-hantering minskar risken.
 
 ## D
 
@@ -60,6 +100,10 @@
 
 *Svenska:* **deterministiskt test** – Ger alltid samma resultat för samma indata, t.ex. en kontroll av format eller behörigheter. Sådana tester är snabba och billiga, till skillnad från stickprovsbaserade AI-utvärderingar där resultaten kan variera.
 
+
+<a id="term-diff"></a>**Diff** - The comparison of two code versions showing added, removed and changed lines. Reviewing a diff helps establish the precise change scope and spot accidental losses.
+
+*Svenska:* **ändringsjämförelse** - En jämförelse av två kodversioner som visar tillagda, borttagna och ändrade rader. Används för att hitta oavsiktliga förändringar före merge.
 <a id="term-drift"></a>**Drift** - A gradual change after release, in data, user behaviour or model output, that can make a system perform worse than when it was tested. Drift is detected by monitoring live use over time.
 
 *Svenska:* **glidning (drift)** – Gradvisa förändringar efter lansering, i data, användarbeteende eller modellens svar, som kan göra att systemet fungerar sämre än när det testades. Upptäcks genom att man följer den verkliga användningen över tid. Obs: inte samma sak som svenskans "drift" i betydelsen att driva och underhålla system.
@@ -69,6 +113,10 @@
 <a id="term-end-to-end-test"></a>**End-to-End Test (E2E)** - A test that runs a complete user journey through the whole system, for example in a browser, to confirm that all parts work together. One passing run does not guarantee future reliability.
 
 *Svenska:* **helhetstest** – Testar ett helt användarflöde genom hela systemet, t.ex. i en webbläsare, för att se att alla delar fungerar ihop. Att det gick bra en gång garanterar inte att det fortsätter att fungera.
+
+<a id="term-escaped-mutation"></a>**ESCAPED (Mutation Outcome)** - A deliberate defect was introduced but the named test did not fail as expected. The test may miss the control, exercise another guard or be too weak. ESCAPED signals a test gap, not necessarily an observed production exploit.
+
+*Svenska:* **mutation som slank igenom** - Skyddet försämrades utan att rätt test slog larm. Det visar en lucka i testernas förmåga, men bevisar inte i sig ett verkligt angrepp i produktion.
 
 ## F
 
@@ -90,6 +138,14 @@
 
 ## G
 
+
+<a id="term-git"></a>**Git** - A version-control system that records file history as commits and supports branches, comparisons and merges. Git is the tool; GitHub is a service that hosts repositories and collaboration.
+
+*Svenska:* **Git versionshantering** - Systemet som spårar ändringar i filer och skapar commits, branches och merges. Git är verktyget; GitHub är en tjänst som kan lagra och samordna Git-repon.
+
+<a id="term-github-actions"></a>**GitHub Actions** - GitHub's automation service that executes configured workflows when events such as a push occur. Test jobs run on runners and report their results against a specific commit.
+
+*Svenska:* **GitHub Actions** - GitHubs tjänst för automatisering. När exempelvis en push görs kan den starta definierade testjobb och redovisa resultat för en bestämd commit.
 <a id="term-golden-dataset"></a>**Golden Dataset** - A versioned collection of example inputs with expected or approved answers, used to check whether a change to a prompt, model or retrieval step made results worse. A small set cannot cover every real-world case.
 
 *Svenska:* **referensdataset, facit** – En versionshanterad samling exempelfrågor med förväntade eller godkända svar. Används för att se om en ändring av prompt, modell eller sökning har försämrat resultaten. En liten samling täcker aldrig alla verkliga fall.
@@ -98,6 +154,10 @@
 
 *Svenska:* **förankring i källor** – Om varje påstående i ett AI-svar faktiskt stöds av källmaterialet som modellen fick. En sådan kontroll kan hålla tillbaka påståenden utan stöd, men fångar inte alla faktafel.
 
+
+<a id="term-guard"></a>**Guard (Safety Check)** - A conditional check in code that rejects or delays an unsafe action, for example refusing malformed IDs or blocking updates while a dialog is open. A documented guard is not proof that it runs.
+
+*Svenska:* **skyddskontroll** - En villkorskontroll i programkod som stoppar ett olämpligt steg, till exempel felaktiga ID:n. Att kontrollen finns i koden bevisar inte att den faktiskt nås vid körning.
 <a id="term-guardrail"></a>**Guardrail** - A rule or check placed around an AI model to block unwanted input or output, such as injection attempts or sensitive data. A guardrail that is described or configured has not necessarily been shown to work.
 
 *Svenska:* **skyddsräcke** – En regel eller kontroll runt en AI-modell som stoppar oönskad indata eller utdata, t.ex. injektionsförsök eller känsliga uppgifter. Att ett skydd finns beskrivet eller inställt betyder inte att det har visats fungera.
@@ -110,6 +170,14 @@
 
 *Svenska:* **överlämning** – När en agent, tjänst eller person lämnar över en uppgift med dess sammanhang till en annan. Tester kontrollerar att inget sammanhang tappas och att det är tydligt vem som äger uppgiften. Ett levererat meddelande är inte en utförd uppgift.
 
+
+<a id="term-headless-browser"></a>**Headless Browser** - A real browser engine running without a visible window. Browser tests can still click elements, send keyboard input and observe page behaviour, including JavaScript errors.
+
+*Svenska:* **webbläsare utan synligt fönster** - En riktig webbläsarmotor som körs automatiskt utan att något fönster visas. Tester kan ändå klicka, skriva och kontrollera gränssnittets beteende.
+
+<a id="term-html-escaping"></a>**HTML Escaping** - Converting characters such as angle brackets and quotes into safe text representations before inserting untrusted content into HTML. The correct escaping depends on the context, for example text versus attributes.
+
+*Svenska:* **HTML-escaping** - Att göra specialtecken i opålitlig text ofarliga innan de placeras i HTML. Tecken i HTML-attribut kan kräva annan hantering än vanlig text.
 <a id="term-human-in-the-loop"></a>**Human-in-the-Loop (HITL)** - A setup where a person must review or approve certain AI actions, such as writing or changing data, before they take effect.
 
 *Svenska:* **människa i loopen** – En person måste granska eller godkänna vissa AI-handlingar, t.ex. att skriva eller ändra data, innan de genomförs.
@@ -144,14 +212,40 @@
 
 <a id="term-multi-agent-system"></a>**Multi-Agent System** - Multiple AI agents working together, each with specialized roles and capabilities.
 
+<a id="term-mutation"></a>**Mutation (Software Testing)** - A small, deliberate change to program code that removes or weakens behaviour, such as replacing a safety check with a constant. It is applied to a temporary test copy, not production.
+
+*Svenska:* **mutation i mjukvarutest** - En liten avsiktlig kodförändring som försämrar ett beteende, exempelvis tar bort en spärr. Den görs i en tillfällig testkopia, inte i produktionskoden.
+
+<a id="term-mutation-gate"></a>**Mutation Gate** - A CI checkpoint that requires mutation tests to prove that known safety controls are observable. In tachylite-mcp a pass requires both a green baseline and a caught failure after each mutation.
+
+*Svenska:* **mutationsgrind** - En kontrollpunkt i CI som visar att testerna märker när kända skyddsabeteenden förstörs. Originalkoden ska passera, och den avsiktligt försämrade versionen ska få rätt test att fallera.
+
+<a id="term-mutation-testing"></a>**Mutation Testing** - A method for testing the tests: deliberately change the code and see whether relevant tests fail. The result measures sensitivity to selected changes, not the absence of all possible bugs.
+
+*Svenska:* **mutationstestning** - En metod för att testa själva testerna: ändra koden avsiktligt och se om rätt tester märker felet. Den bevisar inte att alla tänkbara fel upptäcks.
+
 ## N
 
 <a id="term-nightly-run"></a>**Nightly Run** - A larger, scheduled test run, typically overnight, that covers the full evaluation set instead of a sample. It complements the quick checks run on each commit.
 
 *Svenska:* **nattlig testkörning** – En större schemalagd testkörning, ofta nattetid, som går igenom hela utvärderingssamlingen i stället för ett stickprov. Kompletterar de snabba kontrollerna vid varje commit.
 
+<a id="term-non-vacuous-test"></a>**Non-Vacuous Test** - A test that can fail for the property it claims to check. For example, after rejecting malformed updates, it also accepts a valid update over the same channel rather than passing because all updates are blocked.
+
+*Svenska:* **icke-vakuöst test** - Ett test som verkligen kan avslöja det avsedda felet. Om felaktiga uppdateringar nekas måste testet även visa att en korrekt uppdatering fungerar, så att ett helt avstängt system inte ger falskt grönt.
+
+## O
+
+<a id="term-opt-in"></a>**Opt-In** - A feature stays disabled until the user explicitly chooses to enable it. A secure opt-in needs enforcement, not just a switch or indicator that says it is off.
+
+*Svenska:* **aktivt tillval** - En funktion är avstängd tills användaren själv slår på den. Det måste också finnas en fungerande spärr i koden, inte bara en knapp som säger av.
+
 ## P
 
+
+<a id="term-pipeline"></a>**Pipeline** - An ordered or parallel sequence of automated build, test, evaluation and release tasks. A green pipeline reports the checks it ran, not universal correctness.
+
+*Svenska:* **automatiserat arbetsflöde** - En följd av automatiska moment för byggning, test och eventuell leverans. Ett grönt flöde bevisar bara de kontroller som faktiskt ingick.
 <a id="term-prompt"></a>**Prompt** - The input text or instructions given to an AI model.
 
 <a id="term-prompt-engineering"></a>**Prompt Engineering** - The systematic practice of designing, optimizing, and refining prompts to achieve desired AI outputs.
@@ -163,6 +257,14 @@
 <a id="term-pull-request"></a>**Pull Request (PR)** - A request to merge a set of code changes into the main code base, where others can review the changes and automated tests run before they are accepted.
 
 *Svenska:* **ändringsförfrågan** – En begäran om att föra in ändringar i huvudkoden, där andra kan granska dem och automatiska tester körs innan de godkänns.
+
+<a id="term-push"></a>**Push (Git)** - The operation that uploads local Git commits to a remote repository such as GitHub. Pushing a review branch does not merge it into main.
+
+*Svenska:* **publicering av commits** - Att skicka lokala commits till ett fjärrrepo, exempelvis GitHub. En push av en arbetsbranch är inte samma sak som att merga till main.
+
+<a id="term-pytest"></a>**Pytest** - A Python test framework that runs test functions and reports whether they passed, failed, were skipped or could not run. An assertion inside a test checks expected behaviour.
+
+*Svenska:* **Pytest** - Ett testverktyg för Python som kör testfunktioner och rapporterar om de lyckades, misslyckades eller hoppades över.
 
 ## R
 
@@ -180,11 +282,23 @@
 
 *Svenska:* **regressionstest** – Ett test som körs om efter ändringar för att se att något som fungerade tidigare inte har gått sönder. I AI-system betyder det ofta att man kör om referensdatasetet efter att ha ändrat prompt, modell eller sökning.
 
+
+<a id="term-repository"></a>**Repository (Repo)** - A project store managed with Git: files, code, documentation and commit history. A repository can have several branches, but a branch is not another repository.
+
+*Svenska:* **repository eller repo** - En versionshanterad projektförvaring med filer, kod, dokumentation och historik. Ett repo kan ha flera branches, men en branch är inte ett nytt repo.
 <a id="term-retrieval"></a>**Retrieval** - The search step in a RAG system that finds passages to give the model before it answers. Retrieval is tested separately from the answer, because weak or irrelevant passages lead to weak answers.
 
 *Svenska:* **hämtning, sökning** – Söksteget i ett RAG-system som letar fram textstycken åt modellen innan den svarar. Testas separat från svaret, eftersom svaga eller irrelevanta träffar ger svaga svar.
 
 <a id="term-role-prompting"></a>**Role Prompting** - Assigning a specific persona or expertise to the AI (e.g., "You are an expert technical writer").
+
+<a id="term-rollback"></a>**Rollback** - Restoring the previous valid state after a failed operation. For a visual canvas, a failed incoming update must not leave an unusable or partly replaced graph behind.
+
+*Svenska:* **återställning** - Att gå tillbaka till ett tidigare fungerande tillstånd efter ett misslyckande. Om en inkommande uppdatering inte kan ritas ska den tidigare arbetsytan finnas kvar.
+
+<a id="term-runner"></a>**Runner (GitHub Actions)** - The computer or temporary virtual environment that executes a CI job. Using a fresh runner helps show that tests also work outside the developer's own machine.
+
+*Svenska:* **testkörningsmiljö** - Den dator eller tillfälliga virtuella miljö som utför ett CI-jobb. En ren runner hjälper till att upptäcka beroenden till utvecklarens egen dator.
 
 ## S
 
@@ -204,6 +318,14 @@
 
 *Svenska:* **tidigt avbrott** – En testkörning stoppas så fort en billig kontroll misslyckas, så att dyrare kontroller, t.ex. AI-baserad utvärdering, inte körs i onödan.
 
+
+<a id="term-smoke-test"></a>**Smoke Test** - A quick end-to-end check that a key feature starts and performs a representative action. A UI smoke test may open the page in a browser and simulate clicks or typing.
+
+*Svenska:* **röktest eller snabbtest** - En kort kontroll av att viktiga funktioner över huvud taget fungerar. Ett UI-smoke-test öppnar exempelvis sidan i en webbläsare och provar användarhandlingar.
+
+<a id="term-state-mirror"></a>**State Mirror (Live Mirror)** - A feature that applies incoming stateChanged messages to an open graphical canvas. When it is off, execution events may still arrive without replacing the user's graph.
+
+*Svenska:* **direktspegling av tillstånd** - En funktion som uppdaterar en öppen grafisk arbetsyta när nya tillstånd kommer in. Den kan vara avstängd samtidigt som körstatus fortsätter visas.
 <a id="term-system-prompt"></a>**System Prompt** - Instructions that define the AI's behavior across an entire conversation, typically set by the application developer.
 
 ## T
@@ -214,6 +336,14 @@
 
 *Svenska:* **kontrollpunkt (testgrind)** – En kontrollpunkt i ett flöde som en ändring eller förfrågan måste passera för att gå vidare. Om kontrollen inte går igenom stoppas ändringen, görs om eller skickas till granskning.
 
+
+<a id="term-test-harness"></a>**Test Harness** - The surrounding test machinery that prepares copies, fixtures, browsers and checks before and after running tests. If the harness itself is broken, a green-looking result may be meaningless.
+
+*Svenska:* **testhärva eller testmiljöapparat** - Koden och verktygen runt testerna som sätter upp testdata och miljö, kör kontroller och samlar resultat. Även dessa verktyg måste kunna verifieras.
+
+<a id="term-test-matrix"></a>**Test Matrix** - Running equivalent tests under several selected environments, such as different Python versions. Each matrix job must report its own result; one version passing does not prove the others.
+
+*Svenska:* **testmatris** - Samma tester körs i flera miljöer, exempelvis olika Pythonversioner. Varje kombination måste ha ett eget redovisat resultat.
 <a id="term-threat-model"></a>**Threat Model** - A structured review of what needs protecting, who might misuse the system and where untrusted data crosses into trusted parts (trust boundaries). It guides which protections to build but enforces nothing by itself.
 
 *Svenska:* **hotmodell** – En genomgång av vad som behöver skyddas, vem som kan missbruka systemet och var opålitlig data passerar in i betrodda delar (förtroendegränser). Den visar vilka skydd som behövs men skyddar ingenting i sig.
@@ -238,9 +368,27 @@
 
 ## V
 
+
+<a id="term-validator"></a>**Validator** - Code that checks incoming data against expected shapes, types and values before the data is used. It should reject malformed inputs for the right reason while accepting legitimate ones.
+
+*Svenska:* **indatakontroll** - Kod som kontrollerar datas form, typ och värden innan de används. Den ska neka felaktig data men samtidigt tillåta korrekt data.
 <a id="term-verification-receipt"></a>**Verification Receipt** - A record of what a check actually examined and what it found, kept as evidence. A statement such as "change completed" is only a claim; the receipt is what lets someone verify it.
 
 *Svenska:* **verifieringskvitto** – En sparad uppgift om vad en kontroll faktiskt undersökte och kom fram till. Ett påstående som "ändringen är klar" är bara ett påstående; kvittot gör att någon kan kontrollera det.
+
+## W
+
+<a id="term-websocket"></a>**WebSocket** - A persistent two-way connection between a browser and a server. In tachylite-mcp, stateChanged and executionEvent messages share the connection but have different handling rules.
+
+*Svenska:* **WebSocket-förbindelse** - En tvåvägskanal mellan webbläsare och server som kan skicka meddelanden direkt utan att öppna en ny anslutning varje gång.
+
+<a id="term-workflow"></a>**Workflow (Automation)** - A defined sequence of tasks. In GitHub Actions, a workflow is configured in a YAML file and contains jobs and steps; in Tachylite it can also mean the node graph being edited.
+
+*Svenska:* **arbetsflöde** - En beskriven följd av uppgifter. I GitHub Actions är det en YAML-fil med jobb och steg; i Tachylite kan ordet också betyda den graf med noder som användaren redigerar.
+
+<a id="term-worktree"></a>**Worktree (Git)** - A separate checkout directory belonging to an existing Git repository. It lets different branches be worked on in isolated folders without overwriting each other's uncommitted files.
+
+*Svenska:* **separat arbetsmapp i Git** - En extra utcheckad projektmapp knuten till samma Git-repo. Den isolerar arbetet med en branch så andra arbetsmappars osparade ändringar inte påverkas.
 
 ## Z
 
