@@ -1,0 +1,10 @@
+{
+  "name": "blueprint-pages-styles",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./styles/input.css -o ./assets/site-utilities.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
