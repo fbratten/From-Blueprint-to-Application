@@ -196,3 +196,7 @@ This showcase repository contains promotional materials and interactive demos fo
 <p align="center">
   <em>"The best time to master AI was yesterday. The second best time is today."</em>
 </p>
+
+### Rebuild the local styles
+
+Run `npm ci` followed by `npm run build:css` from the repository root after changing utility classes. Commit the regenerated `assets/site-utilities.css` with the page edits.
