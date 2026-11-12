@@ -4,7 +4,7 @@
 
 This chapter summary will be available when the book is released.
 
-[Pre-order the book →](https://subscribepage.io/from-blueprint-to-application)
+[Explore the book →](https://adaptivearts.ai/book/)
 
 ---
 
